@@ -153,26 +153,26 @@
                 <p class="text-gray-500 mt-3 font-light tracking-wide">Выберите направление для просмотра работ</p>
             </div>
             
-            <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 h-auto md:h-[calc(100vh-220px)]">
-                <div onclick="showPage('renders')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 flex-grow min-h-[300px] fade-up delay-100">
+            <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div onclick="showPage('renders')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 flex-grow aspect-[16/9] fade-up delay-100">
                     <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
                         <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Статичные рендеры</h2>
                     </div>
                 </div>
-                <div onclick="showPage('video')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 flex-grow min-h-[300px] fade-up delay-200">
+                <div onclick="showPage('video')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 flex-grow aspect-[16/9] fade-up delay-200">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
                         <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Анимация</h2>
                     </div>
                 </div>
-                <div onclick="showPage('post')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 flex-grow min-h-[300px] fade-up delay-300">
+                <div onclick="showPage('post')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 flex-grow aspect-[16/9] fade-up delay-300">
                     <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2027&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
                         <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Пост-обработка</h2>
                     </div>
                 </div>
-                <div onclick="showPage('ai')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 flex-grow min-h-[300px] fade-up delay-400">
+                <div onclick="showPage('ai')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 flex-grow aspect-[16/9] fade-up delay-400">
                     <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
                         <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">ИИ Контент</h2>
@@ -234,35 +234,24 @@
                 <button onclick="showPage('home')" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
                 <h2 class="text-3xl font-light uppercase tracking-widest">Классические <span class="font-medium">Рендеры</span></h2>
             </div>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10" id="renders-container">
-                <script>
-                    const renderImages = [
-                        "https://lh3.googleusercontent.com/d/1mNQofYLKIGtXho--2Flr9BLOSvAPuvfS",
-                        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop"
-                    ];
-                    
-                    for(let i = 1; i <= 20; i++) {
-                        let img = renderImages[i % 4];
-                        let desc = i % 2 === 0 
-                            ? "Фотореалистичный экстерьер. Настройка освещения для создания атмосферы глубоких сумерек (deep twilight blue hour)."
-                            : "Детальная проработка материалов и текстур. Точный контроль света для достижения максимального реализма.";
-                        
-                        document.write(`
-                            <div class="group flex flex-col">
-                                <div class="portfolio-card cursor-pointer overflow-hidden rounded-xl bg-gray-900 aspect-[4/3] w-full">
-                                    <img src="${img}" class="lightbox-trigger w-full h-full object-cover" alt="Render ${i}">
-                                </div>
-                                <div class="mt-4 px-1">
-                                    <h3 class="text-white text-sm font-medium tracking-widest uppercase">Проект ${String(i).padStart(2, '0')}</h3>
-                                    <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">${desc}</p>
-                                </div>
-                            </div>
-                        `);
-                    }
-                </script>
+                </div>
+        </section>
+
+        <section id="project-view" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
+            <div class="flex items-center justify-between mb-12 border-b border-gray-800 pb-4">
+                <div class="flex items-center gap-4">
+                    <button onclick="showPage('renders')" class="text-gray-500 hover:text-white transition flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        <span class="uppercase tracking-widest text-sm hidden sm:inline">Назад к проектам</span>
+                    </button>
+                    <h2 class="text-2xl font-light uppercase tracking-widest" id="project-title">Название <span class="font-medium">Проекта</span></h2>
+                </div>
             </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="project-images-grid">
+                </div>
         </section>
 
         <section id="video" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
@@ -272,9 +261,15 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-                <div class="flex flex-col group">
-                    <div class="w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="flex flex-col">
+                    <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                        <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
+                                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+                            </div>
+                        </div>
+                        <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Масштабный Экстерьер</h3>
@@ -282,9 +277,15 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col group">
-                    <div class="w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="flex flex-col">
+                    <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1935&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                        <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
+                                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+                            </div>
+                        </div>
+                        <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Динамика Интерьера</h3>
@@ -292,9 +293,15 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col group">
-                    <div class="w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="flex flex-col">
+                    <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                        <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
+                                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+                            </div>
+                        </div>
+                        <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Презентация ЖК</h3>
@@ -302,9 +309,15 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col group">
-                    <div class="w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="flex flex-col">
+                    <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2053&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                        <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
+                                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+                            </div>
+                        </div>
+                        <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Коммерческий Объект</h3>
@@ -312,9 +325,15 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col group">
-                    <div class="w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="flex flex-col">
+                    <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                        <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
+                                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+                            </div>
+                        </div>
+                        <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Детализация фасада</h3>
@@ -322,9 +341,15 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col group">
-                    <div class="w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
-                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="flex flex-col">
+                    <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                        <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
+                            <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
+                                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+                            </div>
+                        </div>
+                        <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Ландшафтный дизайн</h3>
@@ -342,7 +367,7 @@
             
             <div class="flex flex-col gap-16">
                 <div class="flex flex-col gap-4">
-                    <div class="comparison-slider-wrapper relative w-full aspect-[4/3] md:aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
+                    <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2027&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="После">
                         <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">После</span>
                         <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
@@ -361,7 +386,7 @@
                 </div>
 
                 <div class="flex flex-col gap-4">
-                    <div class="comparison-slider-wrapper relative w-full aspect-[4/3] md:aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
+                    <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="После">
                         <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">После</span>
                         <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
@@ -380,7 +405,7 @@
                 </div>
 
                 <div class="flex flex-col gap-4">
-                    <div class="comparison-slider-wrapper relative w-full aspect-[4/3] md:aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
+                    <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="После">
                         <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">После</span>
                         <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
@@ -399,7 +424,7 @@
                 </div>
 
                 <div class="flex flex-col gap-4">
-                    <div class="comparison-slider-wrapper relative w-full aspect-[4/3] md:aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
+                    <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="После">
                         <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">После</span>
                         <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
@@ -418,7 +443,7 @@
                 </div>
 
                 <div class="flex flex-col gap-4">
-                    <div class="comparison-slider-wrapper relative w-full aspect-[4/3] md:aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
+                    <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2053&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="После">
                         <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">После</span>
                         <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
@@ -445,9 +470,9 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-                <div class="flex flex-col gap-12">
+                <div class="flex flex-col gap-12" id="ai-photos-grid">
                     <div class="flex flex-col group">
-                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
+                        <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
                             <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 1">
                         </div>
                         <div class="mt-4 px-1">
@@ -457,7 +482,7 @@
                     </div>
 
                     <div class="flex flex-col group">
-                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
+                        <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
                             <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2027&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 2">
                         </div>
                         <div class="mt-4 px-1">
@@ -467,7 +492,7 @@
                     </div>
 
                     <div class="flex flex-col group">
-                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
+                        <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
                             <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 3">
                         </div>
                         <div class="mt-4 px-1">
@@ -477,40 +502,26 @@
                     </div>
 
                     <div class="flex flex-col group">
-                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
+                        <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
                             <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 4">
                         </div>
                         <div class="mt-4 px-1">
                             <h3 class="text-white text-sm font-medium tracking-widest uppercase">Вариативность Текстур</h3>
-                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">ИИ-ассистирование при подборе текстур кирпича и дерева для утверждения с заказчиком.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col group">
-                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 5">
-                        </div>
-                        <div class="mt-4 px-1">
-                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Эскизное Предложение</h3>
-                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Трансформация чернового чертежа в красочную подачу за несколько минут для тендерной заявки.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col group">
-                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
-                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 6">
-                        </div>
-                        <div class="mt-4 px-1">
-                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Детализация Малых Форм</h3>
-                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">ИИ-генерация уникальных элементов декора и осветительных приборов для уличных зон.</p>
+                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">ИИ-ассистирование при подборе текстур кирпича и дерева для быстрого утверждения с заказчиком.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex flex-col gap-12">
-                    <div class="flex flex-col group">
-                        <div class="w-full aspect-[4/3] bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/AI_VIDEO_ID_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="flex flex-col">
+                        <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                            <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
+                                <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+                                </div>
+                            </div>
+                            <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/AI_VIDEO_ID_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="mt-4 px-1">
                             <h3 class="text-white text-sm font-medium tracking-widest uppercase">AI Анимация 01</h3>
@@ -518,9 +529,15 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col group">
-                        <div class="w-full aspect-[4/3] bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/AI_VIDEO_ID_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="flex flex-col">
+                        <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1935&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                            <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
+                                <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+                                </div>
+                            </div>
+                            <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/AI_VIDEO_ID_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="mt-4 px-1">
                             <h3 class="text-white text-sm font-medium tracking-widest uppercase">Динамика Света</h3>
@@ -528,9 +545,15 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col group">
-                        <div class="w-full aspect-[4/3] bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/AI_VIDEO_ID_3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="flex flex-col">
+                        <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                            <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
+                                <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+                                </div>
+                            </div>
+                            <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/AI_VIDEO_ID_3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="mt-4 px-1">
                             <h3 class="text-white text-sm font-medium tracking-widest uppercase">Концептуальное Видео</h3>
@@ -538,33 +561,19 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col group">
-                        <div class="w-full aspect-[4/3] bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/AI_VIDEO_ID_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="flex flex-col">
+                        <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2053&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                            <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
+                                <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
+                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+                                </div>
+                            </div>
+                            <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/AI_VIDEO_ID_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div class="mt-4 px-1">
                             <h3 class="text-white text-sm font-medium tracking-widest uppercase">ИИ-Трансформация</h3>
                             <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Демонстрация плавного перехода между сезонами (лето/зима) на базе одного кадра.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col group">
-                        <div class="w-full aspect-[4/3] bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/AI_VIDEO_ID_5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="mt-4 px-1">
-                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Генерация Среды</h3>
-                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Создание реалистичного трафика людей и автомобилей поверх статичного рендера.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col group">
-                        <div class="w-full aspect-[4/3] bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
-                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/AI_VIDEO_ID_6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="mt-4 px-1">
-                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Стилизация Архитектуры</h3>
-                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Применение различных художественных стилей (акварель, скетч) к готовому 3D-ролику.</p>
                         </div>
                     </div>
                 </div>
@@ -602,6 +611,59 @@
             }
         }
 
+        // Логика генерации 6 проектов (Рендеры)
+        const renderImages = [
+            "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop"
+        ];
+
+        const rendersContainer = document.getElementById('renders-container');
+        let rendersHTML = '';
+        for(let i = 1; i <= 6; i++) {
+            let img = renderImages[i % 4];
+            let desc = i % 2 === 0 
+                ? "Фотореалистичный экстерьер. Настройка освещения для создания атмосферы глубоких сумерек (deep twilight blue hour)."
+                : "Детальная проработка материалов и текстур. Точный контроль света для достижения максимального реализма.";
+            
+            rendersHTML += `
+                <div class="group flex flex-col cursor-pointer" onclick="openProject(${i})">
+                    <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
+                        <img src="${img}" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project ${i}">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+                            <span class="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded backdrop-blur-sm bg-black/30">Смотреть проект</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 px-1">
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Проект ${String(i).padStart(2, '0')}</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">${desc}</p>
+                    </div>
+                </div>
+            `;
+        }
+        if(rendersContainer) rendersContainer.innerHTML = rendersHTML;
+
+        // Открытие конкретного проекта
+        function openProject(projectId) {
+            const container = document.getElementById('project-images-grid');
+            document.getElementById('project-title').innerHTML = `Проект <span class="font-medium">${String(projectId).padStart(2, '0')}</span>`;
+            
+            let html = '';
+            for(let i = 0; i < 6; i++) {
+                // Генерируем 6 картинок (здесь для примера берутся из массива по кругу)
+                let imgUrl = renderImages[(projectId + i) % renderImages.length]; 
+                html += `
+                    <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] portfolio-card cursor-pointer">
+                        <img src="${imgUrl}" class="lightbox-trigger w-full h-full object-cover" alt="Image ${i+1}">
+                    </div>
+                `;
+            }
+            container.innerHTML = html;
+            showPage('project-view');
+        }
+
+
         // 2. Логика модального окна "Request a Quote"
         function openQuoteModal() {
             const modal = document.getElementById('quote-modal');
@@ -626,6 +688,24 @@
         document.getElementById('quote-modal').addEventListener('click', function(e) {
             if (e.target === this) closeQuoteModal();
         });
+
+        // Запуск YouTube видео вместо превью
+        function playYouTubeVideo(container) {
+            const thumb = container.querySelector('.video-thumb');
+            const playBtn = container.querySelector('.play-btn');
+            const iframe = container.querySelector('iframe');
+            
+            if(thumb) thumb.classList.add('hidden');
+            if(playBtn) playBtn.classList.add('hidden');
+            
+            let src = iframe.getAttribute('data-src');
+            if(src) {
+                // Добавляем autoplay
+                iframe.setAttribute('src', src + (src.includes('?') ? '&' : '?') + 'autoplay=1&rel=0');
+                iframe.removeAttribute('data-src');
+            }
+            iframe.classList.remove('hidden');
+        }
 
         // 3. Логика интерактивных слайдеров "До/После"
         function initSliders() {
@@ -653,20 +733,24 @@
             });
         }
 
-        // 4. Логика Лайтбокса
+        // 4. Логика Лайтбокса (Делегирование событий)
         let lightboxImages = [];
         let currentImgIndex = 0;
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
 
         function initLightbox() {
-            const triggers = document.querySelectorAll('.lightbox-trigger');
-            lightboxImages = Array.from(triggers).map(img => img.src);
-            
-            triggers.forEach((trigger, index) => {
-                const card = trigger.closest('.portfolio-card') || trigger.closest('.comparison-slider-wrapper');
-                if(card && !trigger.closest('.comparison-slider-wrapper')) {
-                    card.addEventListener('click', () => openLightbox(index));
+            // Клик по любой картинке с классом lightbox-trigger
+            document.addEventListener('click', (e) => {
+                if(e.target.classList.contains('lightbox-trigger')) {
+                    // Находим родительскую сетку, чтобы забрать только её картинки для листания
+                    const grid = e.target.closest('.grid') || e.target.closest('#ai-photos-grid');
+                    if(grid) {
+                        const siblings = grid.querySelectorAll('.lightbox-trigger');
+                        lightboxImages = Array.from(siblings).map(img => img.src);
+                        currentImgIndex = Array.from(siblings).indexOf(e.target);
+                        openLightboxContext();
+                    }
                 }
             });
 
@@ -683,8 +767,7 @@
             });
         }
 
-        function openLightbox(index) {
-            currentImgIndex = index;
+        function openLightboxContext() {
             lightboxImg.src = lightboxImages[currentImgIndex];
             lightbox.classList.remove('hidden');
             setTimeout(() => {
