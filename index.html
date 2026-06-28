@@ -103,14 +103,14 @@
     <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
         <div class="max-w-[1400px] mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
-            <a href="#" onclick="showPage('why-us')" class="text-xl font-light tracking-widest uppercase mb-4 md:mb-0 hover:text-gray-300 transition">
+            <a href="#why-us" class="text-xl font-light tracking-widest uppercase mb-4 md:mb-0 hover:text-gray-300 transition">
                 Vis<span class="text-gray-500">.</span>Studio
             </a>
             <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-sm uppercase tracking-widest font-light">
-                <a href="#" onclick="showPage('why-us')" class="hover:text-white text-gray-400 transition">Why Us</a>
-                <a href="#" onclick="showPage('home')" class="hover:text-white text-gray-400 transition">Portfolio</a>
-                <a href="#" onclick="showPage('reviews')" class="hover:text-white text-gray-400 transition">Google Reviews</a>
-                <a href="#" onclick="showPage('contacts')" class="hover:text-white text-gray-400 transition">Contact</a>
+                <a href="#why-us" class="hover:text-white text-gray-400 transition">Why Us</a>
+                <a href="#home" class="hover:text-white text-gray-400 transition">Portfolio</a>
+                <a href="#reviews" class="hover:text-white text-gray-400 transition">Google Reviews</a>
+                <a href="#contacts" class="hover:text-white text-gray-400 transition">Contact</a>
             </div>
         </div>
     </nav>
@@ -119,7 +119,7 @@
     <main class="pt-24 md:pt-20">
 
         <!-- 1. WHY US (HOME) -->
-        <section id="why-us" class="page-section active min-h-screen pt-20 pb-24 px-6 max-w-5xl mx-auto flex flex-col justify-center gap-20">
+        <section id="why-us" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-5xl mx-auto flex flex-col justify-center gap-20">
             
             <!-- Who We Are -->
             <div class="fade-up flex flex-col md:flex-row gap-8 md:gap-12 items-start">
@@ -181,25 +181,25 @@
             </div>
             
             <div class="w-[90%] max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mx-auto">
-                <div onclick="showPage('renders')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-100 shadow-xl">
+                <div onclick="window.location.hash='renders'" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-100 shadow-xl">
                     <img src="https://picsum.photos/seed/hub_renders/1920/1080" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100" alt="Still Renders Hub">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
                         <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Still Renders</h2>
                     </div>
                 </div>
-                <div onclick="showPage('video')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-200 shadow-xl">
+                <div onclick="window.location.hash='video'" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-200 shadow-xl">
                     <img src="https://picsum.photos/seed/hub_anim/1920/1080" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100" alt="Animation Hub">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
                         <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Animation</h2>
                     </div>
                 </div>
-                <div onclick="showPage('before-after')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-300 shadow-xl">
+                <div onclick="window.location.hash='before-after'" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-300 shadow-xl">
                     <img src="https://picsum.photos/seed/hub_ba/1920/1080" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100" alt="Before and After Hub">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
                         <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Before & After</h2>
                     </div>
                 </div>
-                <div onclick="showPage('ai')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-400 shadow-xl">
+                <div onclick="window.location.hash='ai'" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-400 shadow-xl">
                     <img src="https://picsum.photos/seed/hub_ai/1920/1080" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100" alt="AI Hub">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
                         <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">AI Content</h2>
@@ -260,7 +260,7 @@
         <!-- PORTFOLIO: RENDERS (6 PROJECTS CARDS) -->
         <section id="renders" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
-                <button onclick="showPage('home')" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
+                <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
                 <h2 class="text-3xl font-light uppercase tracking-widest">Still <span class="font-medium">Renders</span></h2>
             </div>
             
@@ -273,7 +273,7 @@
         <section id="project-view" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center justify-between mb-12 border-b border-gray-800 pb-4">
                 <div class="flex items-center gap-4">
-                    <button onclick="showPage('renders')" class="text-gray-500 hover:text-white transition flex items-center gap-2">
+                    <button onclick="window.location.hash='renders'" class="text-gray-500 hover:text-white transition flex items-center gap-2">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                         <span class="uppercase tracking-widest text-sm hidden sm:inline">Back to Projects</span>
                     </button>
@@ -289,7 +289,7 @@
         <!-- PORTFOLIO: ANIMATION (YouTube Embeds with custom previews) -->
         <section id="video" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
-                <button onclick="showPage('home')" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
+                <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
                 <h2 class="text-3xl font-light uppercase tracking-widest">Animation & <span class="font-medium">Video</span></h2>
             </div>
             
@@ -297,7 +297,6 @@
                 <!-- Video 1 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
-                        <!-- YOUR PREVIEW IMAGE -->
                         <img src="https://picsum.photos/seed/anim_vid_1/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 1">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -315,7 +314,6 @@
                 <!-- Video 2 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
-                        <!-- YOUR PREVIEW IMAGE -->
                         <img src="https://picsum.photos/seed/anim_vid_2/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 2">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -333,7 +331,6 @@
                 <!-- Video 3 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
-                        <!-- YOUR PREVIEW IMAGE -->
                         <img src="https://picsum.photos/seed/anim_vid_3/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 3">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -351,7 +348,6 @@
                 <!-- Video 4 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
-                        <!-- YOUR PREVIEW IMAGE -->
                         <img src="https://picsum.photos/seed/anim_vid_4/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 4">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -369,7 +365,6 @@
                 <!-- Video 5 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
-                        <!-- YOUR PREVIEW IMAGE -->
                         <img src="https://picsum.photos/seed/anim_vid_5/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 5">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -387,7 +382,6 @@
                 <!-- Video 6 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
-                        <!-- YOUR PREVIEW IMAGE -->
                         <img src="https://picsum.photos/seed/anim_vid_6/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 6">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -407,7 +401,7 @@
         <!-- PORTFOLIO: BEFORE & AFTER (5 SLIDERS) -->
         <section id="before-after" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
-                <button onclick="showPage('home')" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
+                <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
                 <h2 class="text-3xl font-light uppercase tracking-widest">Before & <span class="font-medium">After</span></h2>
             </div>
             
@@ -517,7 +511,7 @@
         <!-- PORTFOLIO: AI CONTENT (4 Images + 4 YouTube Videos) -->
         <section id="ai" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
              <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
-                <button onclick="showPage('home')" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
+                <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
                 <h2 class="text-3xl font-light uppercase tracking-widest">AI <span class="font-medium">Content</span></h2>
             </div>
             
@@ -536,7 +530,8 @@
 
                     <div class="flex flex-col group">
                         <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
-                            <img src="https://picsum.photos/seed/ai_photo_2/1920/1080" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 2">
+                            <!-- Изменен SEED для избежания вертикального кадра -->
+                            <img src="https://picsum.photos/seed/interior_moodboard_16x9/1920/1080" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 2">
                         </div>
                         <div class="mt-4 px-1">
                             <h3 class="text-white text-sm font-medium tracking-widest uppercase">Interior Moodboard</h3>
@@ -658,18 +653,62 @@
     </main>
 
     <script>
-        // 1. SPA Page Navigation
-        function showPage(pageId) {
+        // 1. SPA Page Hash Routing & History
+        function handleRouting() {
+            let hash = window.location.hash.substring(1);
+            if (!hash) {
+                // If there's no hash (e.g. fresh load), set it to #why-us without adding to history
+                window.history.replaceState(null, null, '#why-us');
+                hash = 'why-us';
+            }
+
+            // Hide all sections
             document.querySelectorAll('.page-section').forEach(section => {
                 section.classList.remove('active');
             });
-            document.getElementById(pageId).classList.add('active');
+
+            // Handle Dynamic Project Generation Route
+            if (hash.startsWith('project-view-')) {
+                let projectId = parseInt(hash.replace('project-view-', ''), 10);
+                if (!projectId) projectId = 1;
+
+                const container = document.getElementById('project-images-grid');
+                document.getElementById('project-title').innerHTML = `Project <span class="font-medium">${String(projectId).padStart(2, '0')}</span>`;
+
+                let html = '';
+                for(let i = 1; i <= 6; i++) {
+                    let imgUrl = `https://picsum.photos/seed/proj_${projectId}_img_${i}/1920/1080`; 
+                    html += `
+                        <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] portfolio-card cursor-pointer">
+                            <img src="${imgUrl}" class="lightbox-trigger w-full h-full object-cover" alt="Image ${i}">
+                        </div>
+                    `;
+                }
+                container.innerHTML = html;
+                const projectView = document.getElementById('project-view');
+                if(projectView) projectView.classList.add('active');
+            } 
+            // Handle regular sections
+            else {
+                const targetSection = document.getElementById(hash);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                } else {
+                    // Fallback
+                    window.history.replaceState(null, null, '#why-us');
+                    document.getElementById('why-us').classList.add('active');
+                }
+            }
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            if(pageId === 'before-after') {
+
+            if (hash === 'before-after') {
                 setTimeout(resizeAllImages, 50);
             }
         }
+
+        // Listen for history back/forward and hash changes
+        window.addEventListener('hashchange', handleRouting);
 
         // Project Generation Logic (Still Renders)
         const rendersContainer = document.getElementById('renders-container');
@@ -681,7 +720,7 @@
                 : "Detailed elaboration of materials and textures. Precise lighting control for maximum realism.";
             
             rendersHTML += `
-                <div class="group flex flex-col cursor-pointer" onclick="openProject(${i})">
+                <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-${i}'">
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
                         <img src="${img}" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project ${i}">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
@@ -696,26 +735,6 @@
             `;
         }
         if(rendersContainer) rendersContainer.innerHTML = rendersHTML;
-
-        // Open specific project gallery (Generates 6 unique images per project)
-        function openProject(projectId) {
-            const container = document.getElementById('project-images-grid');
-            document.getElementById('project-title').innerHTML = `Project <span class="font-medium">${String(projectId).padStart(2, '0')}</span>`;
-            
-            let html = '';
-            for(let i = 1; i <= 6; i++) {
-                // Here we generate a uniquely seeded image URL for each nested picture
-                let imgUrl = `https://picsum.photos/seed/proj_${projectId}_img_${i}/1920/1080`; 
-                html += `
-                    <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] portfolio-card cursor-pointer">
-                        <img src="${imgUrl}" class="lightbox-trigger w-full h-full object-cover" alt="Image ${i}">
-                    </div>
-                `;
-            }
-            container.innerHTML = html;
-            showPage('project-view');
-        }
-
 
         // 2. "Request a Quote" Modal Logic
         function openQuoteModal() {
@@ -742,7 +761,7 @@
             if (e.target === this) closeQuoteModal();
         });
 
-        // YouTube Video Play Logic
+        // YouTube Video Play Logic (Shows video layer first, then applies autoplay)
         function playYouTubeVideo(container) {
             const thumb = container.querySelector('.video-thumb');
             const playBtn = container.querySelector('.play-btn');
@@ -848,6 +867,7 @@
 
         window.addEventListener('resize', resizeAllImages);
         window.addEventListener('load', () => {
+            handleRouting();
             initSliders();
             resizeAllImages();
             initLightbox();
