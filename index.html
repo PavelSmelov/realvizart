@@ -182,25 +182,25 @@
             
             <div class="w-[90%] max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mx-auto">
                 <div onclick="showPage('renders')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-100 shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100">
+                    <img src="https://picsum.photos/seed/hub_renders/1920/1080" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100" alt="Still Renders Hub">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
                         <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Still Renders</h2>
                     </div>
                 </div>
                 <div onclick="showPage('video')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-200 shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100">
+                    <img src="https://picsum.photos/seed/hub_anim/1920/1080" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100" alt="Animation Hub">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
                         <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Animation</h2>
                     </div>
                 </div>
                 <div onclick="showPage('before-after')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-300 shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2027&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100">
+                    <img src="https://picsum.photos/seed/hub_ba/1920/1080" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100" alt="Before and After Hub">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
                         <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Before & After</h2>
                     </div>
                 </div>
                 <div onclick="showPage('ai')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-400 shadow-xl">
-                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100">
+                    <img src="https://picsum.photos/seed/hub_ai/1920/1080" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100" alt="AI Hub">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
                         <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">AI Content</h2>
                     </div>
@@ -257,7 +257,7 @@
             </div>
         </section>
 
-        <!-- PORTFOLIO: RENDERS (6 PROJECTS) -->
+        <!-- PORTFOLIO: RENDERS (6 PROJECTS CARDS) -->
         <section id="renders" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="showPage('home')" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
@@ -298,13 +298,13 @@
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                         <!-- YOUR PREVIEW IMAGE -->
-                        <img src="assets/1.jpg" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                        <img src="https://picsum.photos/seed/anim_vid_1/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 1">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
                                 <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
                             </div>
                         </div>
-                        <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VdT4VvBIl-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Large-scale Exterior</h3>
@@ -316,7 +316,7 @@
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                         <!-- YOUR PREVIEW IMAGE -->
-                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1935&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                        <img src="https://picsum.photos/seed/anim_vid_2/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 2">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
                                 <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
@@ -334,7 +334,7 @@
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                         <!-- YOUR PREVIEW IMAGE -->
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                        <img src="https://picsum.photos/seed/anim_vid_3/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 3">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
                                 <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
@@ -352,7 +352,7 @@
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                         <!-- YOUR PREVIEW IMAGE -->
-                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2053&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                        <img src="https://picsum.photos/seed/anim_vid_4/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 4">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
                                 <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
@@ -370,7 +370,7 @@
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                         <!-- YOUR PREVIEW IMAGE -->
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                        <img src="https://picsum.photos/seed/anim_vid_5/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 5">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
                                 <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
@@ -388,7 +388,7 @@
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                         <!-- YOUR PREVIEW IMAGE -->
-                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                        <img src="https://picsum.photos/seed/anim_vid_6/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 6">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
                                 <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
@@ -415,10 +415,10 @@
                 <!-- Slider 1 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
-                        <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2027&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="After">
+                        <img src="https://picsum.photos/seed/ba_1_after/1920/1080" class="absolute inset-0 w-full h-full object-cover" alt="After">
                         <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">After</span>
                         <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
-                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
+                            <img src="https://picsum.photos/seed/ba_1_before/1920/1080" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
                             <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">Before</span>
                         </div>
                         <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
@@ -435,10 +435,10 @@
                 <!-- Slider 2 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="After">
+                        <img src="https://picsum.photos/seed/ba_2_after/1920/1080" class="absolute inset-0 w-full h-full object-cover" alt="After">
                         <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">After</span>
                         <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
+                            <img src="https://picsum.photos/seed/ba_2_before/1920/1080" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
                             <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">Before</span>
                         </div>
                         <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
@@ -455,10 +455,10 @@
                 <!-- Slider 3 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="After">
+                        <img src="https://picsum.photos/seed/ba_3_after/1920/1080" class="absolute inset-0 w-full h-full object-cover" alt="After">
                         <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">After</span>
                         <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
-                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
+                            <img src="https://picsum.photos/seed/ba_3_before/1920/1080" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
                             <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">Before</span>
                         </div>
                         <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
@@ -475,10 +475,10 @@
                 <!-- Slider 4 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="After">
+                        <img src="https://picsum.photos/seed/ba_4_after/1920/1080" class="absolute inset-0 w-full h-full object-cover" alt="After">
                         <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">After</span>
                         <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
-                            <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2027&auto=format&fit=crop" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
+                            <img src="https://picsum.photos/seed/ba_4_before/1920/1080" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
                             <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">Before</span>
                         </div>
                         <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
@@ -495,10 +495,10 @@
                 <!-- Slider 5 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
-                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2053&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="After">
+                        <img src="https://picsum.photos/seed/ba_5_after/1920/1080" class="absolute inset-0 w-full h-full object-cover" alt="After">
                         <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">After</span>
                         <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
-                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1935&auto=format&fit=crop" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
+                            <img src="https://picsum.photos/seed/ba_5_before/1920/1080" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
                             <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">Before</span>
                         </div>
                         <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
@@ -526,7 +526,7 @@
                 <div class="flex flex-col gap-12" id="ai-photos-grid">
                     <div class="flex flex-col group">
                         <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
-                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 1">
+                            <img src="https://picsum.photos/seed/ai_photo_1/1920/1080" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 1">
                         </div>
                         <div class="mt-4 px-1">
                             <h3 class="text-white text-sm font-medium tracking-widest uppercase">AI Facade Concept</h3>
@@ -536,7 +536,7 @@
 
                     <div class="flex flex-col group">
                         <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
-                            <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2027&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 2">
+                            <img src="https://picsum.photos/seed/ai_photo_2/1920/1080" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 2">
                         </div>
                         <div class="mt-4 px-1">
                             <h3 class="text-white text-sm font-medium tracking-widest uppercase">Interior Moodboard</h3>
@@ -546,7 +546,7 @@
 
                     <div class="flex flex-col group">
                         <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 3">
+                            <img src="https://picsum.photos/seed/ai_photo_3/1920/1080" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 3">
                         </div>
                         <div class="mt-4 px-1">
                             <h3 class="text-white text-sm font-medium tracking-widest uppercase">Landscape Ideas</h3>
@@ -556,7 +556,7 @@
 
                     <div class="flex flex-col group">
                         <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
-                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 4">
+                            <img src="https://picsum.photos/seed/ai_photo_4/1920/1080" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 4">
                         </div>
                         <div class="mt-4 px-1">
                             <h3 class="text-white text-sm font-medium tracking-widest uppercase">Texture Variations</h3>
@@ -570,7 +570,7 @@
                     <div class="flex flex-col">
                         <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                             <!-- YOUR PREVIEW IMAGE -->
-                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                            <img src="https://picsum.photos/seed/ai_vid_1/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
                             <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                                 <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
                                     <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
@@ -587,7 +587,7 @@
                     <div class="flex flex-col">
                         <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                             <!-- YOUR PREVIEW IMAGE -->
-                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1935&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                            <img src="https://picsum.photos/seed/ai_vid_2/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
                             <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                                 <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
                                     <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
@@ -604,7 +604,7 @@
                     <div class="flex flex-col">
                         <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                             <!-- YOUR PREVIEW IMAGE -->
-                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                            <img src="https://picsum.photos/seed/ai_vid_3/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
                             <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                                 <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
                                     <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
@@ -621,7 +621,7 @@
                     <div class="flex flex-col">
                         <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                             <!-- YOUR PREVIEW IMAGE -->
-                            <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2053&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
+                            <img src="https://picsum.photos/seed/ai_vid_4/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
                             <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                                 <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
                                     <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
@@ -672,17 +672,10 @@
         }
 
         // Project Generation Logic (Still Renders)
-        const renderImages = [
-            "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop"
-        ];
-
         const rendersContainer = document.getElementById('renders-container');
         let rendersHTML = '';
         for(let i = 1; i <= 6; i++) {
-            let img = renderImages[i % 4];
+            let img = `https://picsum.photos/seed/render_cover_${i}/1920/1080`;
             let desc = i % 2 === 0 
                 ? "Photorealistic exterior. Lighting setup to create a deep twilight blue hour atmosphere."
                 : "Detailed elaboration of materials and textures. Precise lighting control for maximum realism.";
@@ -704,17 +697,18 @@
         }
         if(rendersContainer) rendersContainer.innerHTML = rendersHTML;
 
-        // Open specific project gallery
+        // Open specific project gallery (Generates 6 unique images per project)
         function openProject(projectId) {
             const container = document.getElementById('project-images-grid');
             document.getElementById('project-title').innerHTML = `Project <span class="font-medium">${String(projectId).padStart(2, '0')}</span>`;
             
             let html = '';
-            for(let i = 0; i < 6; i++) {
-                let imgUrl = renderImages[(projectId + i) % renderImages.length]; 
+            for(let i = 1; i <= 6; i++) {
+                // Here we generate a uniquely seeded image URL for each nested picture
+                let imgUrl = `https://picsum.photos/seed/proj_${projectId}_img_${i}/1920/1080`; 
                 html += `
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] portfolio-card cursor-pointer">
-                        <img src="${imgUrl}" class="lightbox-trigger w-full h-full object-cover" alt="Image ${i+1}">
+                        <img src="${imgUrl}" class="lightbox-trigger w-full h-full object-cover" alt="Image ${i}">
                     </div>
                 `;
             }
