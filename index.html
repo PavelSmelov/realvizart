@@ -62,6 +62,7 @@
 </head>
 <body class="antialiased text-gray-200">
 
+    <!-- LIGHTBOX -->
     <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
         <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/50 hover:text-white transition z-50">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -75,6 +76,7 @@
         </button>
     </div>
 
+    <!-- REQUEST A QUOTE MODAL -->
     <div id="quote-modal" class="fixed inset-0 z-[110] bg-black/80 backdrop-blur-sm hidden flex items-center justify-center opacity-0 transition-opacity duration-300 px-4">
         <div class="bg-[#111111] border border-white/10 p-8 md:p-10 rounded-xl w-full max-w-lg relative transform scale-95 transition-transform duration-300 shadow-2xl" id="quote-modal-content">
             <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-gray-500 hover:text-white transition">
@@ -98,6 +100,7 @@
         </div>
     </div>
 
+    <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
         <div class="max-w-[1400px] mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
             <a href="#" onclick="showPage('why-us')" class="text-xl font-light tracking-widest uppercase mb-4 md:mb-0 hover:text-gray-300 transition">
@@ -112,10 +115,13 @@
         </div>
     </nav>
 
+    <!-- MAIN CONTAINER -->
     <main class="pt-24 md:pt-20">
 
+        <!-- 1. WHY US (HOME) -->
         <section id="why-us" class="page-section active min-h-screen pt-20 pb-24 px-6 max-w-5xl mx-auto flex flex-col justify-center gap-20">
             
+            <!-- Who We Are -->
             <div class="fade-up flex flex-col md:flex-row gap-8 md:gap-12 items-start">
                 <div class="w-14 h-14 shrink-0 text-white/80 p-3 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
@@ -128,6 +134,7 @@
                 </div>
             </div>
 
+            <!-- What We Do -->
             <div class="fade-up delay-100 flex flex-col md:flex-row gap-8 md:gap-12 items-start">
                 <div class="w-14 h-14 shrink-0 text-white/80 p-3 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
@@ -146,6 +153,7 @@
                 </div>
             </div>
 
+            <!-- Why Choose Us -->
             <div class="fade-up delay-200 flex flex-col md:flex-row gap-8 md:gap-12 items-start">
                 <div class="w-14 h-14 shrink-0 text-white/80 p-3 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
@@ -165,6 +173,7 @@
             
         </section>
 
+        <!-- 2. PORTFOLIO HUB -->
         <section id="home" class="page-section px-4 md:px-6 pb-12 min-h-[calc(100vh-80px)] flex flex-col items-center justify-center max-w-[1600px] mx-auto pt-6">
             <div class="text-center w-full mb-10 fade-up">
                 <h1 class="text-3xl md:text-4xl font-light tracking-widest uppercase">Portfolio</h1>
@@ -199,6 +208,7 @@
             </div>
         </section>
 
+        <!-- 3. GOOGLE REVIEWS SECTION -->
         <section id="reviews" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <h2 class="text-3xl font-light mb-12 uppercase tracking-widest border-b border-gray-800 pb-4">Google <span class="font-medium">Reviews</span></h2>
             
@@ -247,6 +257,7 @@
             </div>
         </section>
 
+        <!-- PORTFOLIO: RENDERS (6 PROJECTS) -->
         <section id="renders" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="showPage('home')" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
@@ -254,9 +265,11 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10" id="renders-container">
-                </div>
+                <!-- Cards generated via JS below -->
+            </div>
         </section>
 
+        <!-- HIDDEN SECTION: PROJECT GALLERY -->
         <section id="project-view" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center justify-between mb-12 border-b border-gray-800 pb-4">
                 <div class="flex items-center gap-4">
@@ -269,9 +282,11 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="project-images-grid">
-                </div>
+                <!-- Content injected dynamically -->
+            </div>
         </section>
 
+        <!-- PORTFOLIO: ANIMATION (YouTube Embeds with custom previews) -->
         <section id="video" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="showPage('home')" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
@@ -279,15 +294,17 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+                <!-- Video 1 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                        <!-- YOUR PREVIEW IMAGE -->
                         <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
                                 <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
                             </div>
                         </div>
-                        <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VdT4VvBIl-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Large-scale Exterior</h3>
@@ -295,8 +312,10 @@
                     </div>
                 </div>
 
+                <!-- Video 2 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                        <!-- YOUR PREVIEW IMAGE -->
                         <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1935&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -311,8 +330,10 @@
                     </div>
                 </div>
 
+                <!-- Video 3 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                        <!-- YOUR PREVIEW IMAGE -->
                         <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -327,8 +348,10 @@
                     </div>
                 </div>
 
+                <!-- Video 4 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                        <!-- YOUR PREVIEW IMAGE -->
                         <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2053&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -343,8 +366,10 @@
                     </div>
                 </div>
 
+                <!-- Video 5 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                        <!-- YOUR PREVIEW IMAGE -->
                         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -359,8 +384,10 @@
                     </div>
                 </div>
 
+                <!-- Video 6 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                        <!-- YOUR PREVIEW IMAGE -->
                         <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -377,6 +404,7 @@
             </div>
         </section>
 
+        <!-- PORTFOLIO: BEFORE & AFTER (5 SLIDERS) -->
         <section id="before-after" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="showPage('home')" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
@@ -384,6 +412,7 @@
             </div>
             
             <div class="flex flex-col gap-16">
+                <!-- Slider 1 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2027&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="After">
@@ -403,6 +432,7 @@
                     </div>
                 </div>
 
+                <!-- Slider 2 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="After">
@@ -422,6 +452,7 @@
                     </div>
                 </div>
 
+                <!-- Slider 3 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="After">
@@ -441,6 +472,7 @@
                     </div>
                 </div>
 
+                <!-- Slider 4 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="After">
@@ -460,6 +492,7 @@
                     </div>
                 </div>
 
+                <!-- Slider 5 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2053&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="After">
@@ -481,6 +514,7 @@
             </div>
         </section>
 
+        <!-- PORTFOLIO: AI CONTENT (4 Images + 4 YouTube Videos) -->
         <section id="ai" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
              <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="showPage('home')" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
@@ -488,6 +522,7 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+                <!-- LEFT COLUMN (4 Images) -->
                 <div class="flex flex-col gap-12" id="ai-photos-grid">
                     <div class="flex flex-col group">
                         <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
@@ -530,9 +565,11 @@
                     </div>
                 </div>
 
+                <!-- RIGHT COLUMN (4 YouTube Videos with custom previews) -->
                 <div class="flex flex-col gap-12">
                     <div class="flex flex-col">
                         <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                            <!-- YOUR PREVIEW IMAGE -->
                             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
                             <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                                 <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -549,6 +586,7 @@
 
                     <div class="flex flex-col">
                         <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                            <!-- YOUR PREVIEW IMAGE -->
                             <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1935&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
                             <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                                 <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -565,6 +603,7 @@
 
                     <div class="flex flex-col">
                         <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                            <!-- YOUR PREVIEW IMAGE -->
                             <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
                             <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                                 <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -581,6 +620,7 @@
 
                     <div class="flex flex-col">
                         <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
+                            <!-- YOUR PREVIEW IMAGE -->
                             <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2053&auto=format&fit=crop" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
                             <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                                 <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
@@ -598,6 +638,7 @@
             </div>
         </section>
 
+        <!-- CONTACT -->
         <section id="contacts" class="page-section min-h-[70vh] flex items-center justify-center pt-24 px-6">
             <div class="max-w-2xl text-center">
                 <h2 class="text-4xl font-light mb-8 uppercase tracking-widest">Let's Work <span class="font-medium">Together</span></h2>
@@ -606,6 +647,7 @@
                     <button onclick="openQuoteModal()" class="px-10 py-4 bg-white text-black font-medium hover:bg-gray-300 transition min-w-[220px] rounded uppercase tracking-wider text-sm shadow-xl">
                         Email Us
                     </button>
+                    <!-- WhatsApp Button -->
                     <a href="https://wa.me/13057101488" target="_blank" rel="noopener noreferrer" class="px-10 py-4 border border-white/50 hover:border-white transition min-w-[220px] rounded uppercase tracking-wider text-sm flex justify-center items-center gap-2">
                         WhatsApp
                     </a>
@@ -715,12 +757,14 @@
             if(thumb) thumb.classList.add('hidden');
             if(playBtn) playBtn.classList.add('hidden');
             
+            iframe.classList.remove('hidden');
+            
             let src = iframe.getAttribute('data-src');
             if(src) {
-                iframe.setAttribute('src', src + (src.includes('?') ? '&' : '?') + 'autoplay=1&rel=0');
+                let separator = src.includes('?') ? '&' : '?';
+                iframe.setAttribute('src', src + separator + 'autoplay=1&rel=0');
                 iframe.removeAttribute('data-src');
             }
-            iframe.classList.remove('hidden');
         }
 
         // 3. Interactive Before/After Sliders Logic
