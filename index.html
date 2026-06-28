@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Архитектурная Визуализация | Портфолио</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .fade-up {
+            animation: fadeUpAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        @keyframes fadeUpAnim {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-section:not(.active) {
+            display: none !important;
+        }
+        .page-section.active {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .portfolio-card img {
+            transition: transform 0.7s ease, opacity 0.5s ease;
+        }
+        .portfolio-card:hover img {
+            transform: scale(1.03);
+            opacity: 0.7;
+        }
+        
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 40px;
+            height: 100%;
+            cursor: ew-resize;
+            background: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-200">
+
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/50 hover:text-white transition z-50">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <button onclick="prevImage(event)" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 transition-all z-50">
+            <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <img id="lightbox-img" src="" class="max-h-[90vh] max-w-[90vw] object-contain rounded-sm shadow-2xl transition-transform duration-300 scale-95" alt="Fullscreen">
+        <button onclick="nextImage(event)" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 transition-all z-50">
+            <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+    </div>
+
+    <div id="quote-modal" class="fixed inset-0 z-[110] bg-black/80 backdrop-blur-sm hidden flex items-center justify-center opacity-0 transition-opacity duration-300 px-4">
+        <div class="bg-[#111111] border border-white/10 p-8 md:p-10 rounded-xl w-full max-w-lg relative transform scale-95 transition-transform duration-300 shadow-2xl" id="quote-modal-content">
+            <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-gray-500 hover:text-white transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 class="text-2xl font-light uppercase tracking-widest mb-2">Request a <span class="font-medium">Quote</span></h3>
+            <p class="text-sm text-gray-500 mb-8 font-light">Оставьте ваши данные, и мы свяжемся с вами для обсуждения проекта.</p>
+            
+            <form class="space-y-5 flex flex-col" onsubmit="event.preventDefault(); closeQuoteModal(); alert('Форма отправлена!');">
+                <div>
+                    <input type="text" placeholder="Тема проекта" required class="w-full bg-black border border-white/10 rounded px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-white/40 transition font-light text-sm">
+                </div>
+                <div>
+                    <input type="email" placeholder="Ваш Email" required class="w-full bg-black border border-white/10 rounded px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-white/40 transition font-light text-sm">
+                </div>
+                <div>
+                    <textarea placeholder="Сообщение или детали задачи..." required rows="4" class="w-full bg-black border border-white/10 rounded px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-white/40 transition resize-none font-light text-sm"></textarea>
+                </div>
+                <button type="submit" class="mt-2 px-6 py-4 bg-white text-black font-medium hover:bg-gray-300 transition rounded uppercase tracking-wider text-sm shadow-lg w-full">Отправить запрос</button>
+            </form>
+        </div>
+    </div>
+
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-[1400px] mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
+            <a href="#" onclick="showPage('why-us')" class="text-xl font-light tracking-widest uppercase mb-4 md:mb-0 hover:text-gray-300 transition">
+                Vis<span class="text-gray-500">.</span>Studio
+            </a>
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-sm uppercase tracking-widest font-light">
+                <a href="#" onclick="showPage('why-us')" class="hover:text-white text-gray-400 transition">Почему мы?</a>
+                <a href="#" onclick="showPage('home')" class="hover:text-white text-gray-400 transition">Portfolio</a>
+                <a href="#" onclick="showPage('reviews')" class="hover:text-white text-gray-400 transition">Google reviews</a>
+                <a href="#" onclick="showPage('contacts')" class="hover:text-white text-gray-400 transition">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 md:pt-20">
+
+        <section id="why-us" class="page-section active min-h-screen pt-20 pb-24 px-6 max-w-6xl mx-auto flex flex-col justify-center">
+            <div class="fade-up">
+                <h2 class="text-3xl font-light mb-12 uppercase tracking-widest border-b border-gray-800 pb-4">Почему <span class="font-medium">мы?</span></h2>
+                
+                <div class="mb-16 max-w-4xl">
+                    <h1 class="text-2xl md:text-3xl font-light mb-6 leading-tight uppercase tracking-wide">
+                        Фотореалистичная <br><span class="font-medium">Архитектурная Визуализация</span>
+                    </h1>
+                    <p class="text-gray-400 text-lg md:text-xl font-light leading-relaxed">
+                        Помогаем девелоперам, архитекторам, строителям, дизайнерам интерьера и профессионалам в сфере недвижимости воплотить проекты в жизнь еще до начала строительства.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-br from-gray-900 to-[#0a0a0a] border border-white/5 p-8 md:p-12 rounded-2xl mb-16 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
+                        <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5l6 12H6l6-12z"/></svg>
+                    </div>
+                    <h3 class="text-xl uppercase tracking-widest font-medium mb-4">Наш подход</h3>
+                    <p class="text-gray-300 leading-relaxed text-lg font-light max-w-3xl relative z-10">
+                        Мы не просто продаем рендеры и анимацию. Мы помогаем <span class="text-white font-medium border-b border-gray-600 pb-0.5">создать настроение</span>, подчеркнуть сильные стороны вашего проекта и представить его в максимально выгодном свете. 
+                        <br><br>
+                        Наша цель — глубоко понять ваши бизнес-задачи и создать визуальный контент, который вызывает эмоции, формирует доверие и в конечном итоге — продает.
+                    </p>
+                </div>
+
+                <div class="flex justify-center w-full">
+                    <button onclick="openQuoteModal()" class="px-10 py-5 bg-white text-black font-medium hover:bg-gray-300 transition rounded uppercase tracking-widest text-sm shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]">
+                        Request a Quote
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="home" class="page-section px-4 md:px-6 pb-6 min-h-[calc(100vh-80px)] flex flex-col max-w-[1600px] mx-auto pt-6">
+            <div class="text-center mt-6 mb-8 fade-up">
+                <h1 class="text-3xl md:text-4xl font-light tracking-widest uppercase">Portfolio</h1>
+                <p class="text-gray-500 mt-3 font-light tracking-wide">Выберите направление для просмотра работ</p>
+            </div>
+            
+            <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 h-auto md:h-[calc(100vh-220px)]">
+                <div onclick="showPage('renders')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 flex-grow min-h-[300px] fade-up delay-100">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
+                        <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Статичные рендеры</h2>
+                    </div>
+                </div>
+                <div onclick="showPage('video')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 flex-grow min-h-[300px] fade-up delay-200">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
+                        <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Анимация</h2>
+                    </div>
+                </div>
+                <div onclick="showPage('post')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 flex-grow min-h-[300px] fade-up delay-300">
+                    <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2027&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
+                        <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Пост-обработка</h2>
+                    </div>
+                </div>
+                <div onclick="showPage('ai')" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 flex-grow min-h-[300px] fade-up delay-400">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
+                        <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">ИИ Контент</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
+            <h2 class="text-3xl font-light mb-12 uppercase tracking-widest border-b border-gray-800 pb-4">Google <span class="font-medium">Reviews</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 fade-up">
+                <div class="bg-gray-900/40 rounded-xl p-8 flex flex-col items-center justify-center text-center border border-white/5 shadow-lg">
+                    <svg class="w-12 h-12 text-gray-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    <span class="text-4xl font-medium text-white mb-2">120+</span>
+                    <span class="text-xs uppercase tracking-widest text-gray-400">Выполненных проектов</span>
+                </div>
+                <div class="bg-gray-900/40 rounded-xl p-8 flex flex-col items-center justify-center text-center border border-white/5 shadow-lg">
+                    <svg class="w-12 h-12 text-gray-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    <span class="text-4xl font-medium text-white mb-2">45+</span>
+                    <span class="text-xs uppercase tracking-widest text-gray-400">Компаний-партнеров</span>
+                </div>
+                <div class="bg-gray-900/40 rounded-xl p-8 flex flex-col items-center justify-center text-center border border-white/5 shadow-lg">
+                    <svg class="w-12 h-12 text-yellow-500 mb-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <span class="text-4xl font-medium text-white mb-2">5.0</span>
+                    <span class="text-xs uppercase tracking-widest text-gray-400">Средняя оценка</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-up delay-200">
+                <script>
+                    const starsHTML = Array(5).fill('<svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>').join('');
+                    const reviews = [
+                        { text: "Отличная работа! Рендеры превзошли все наши ожидания. Сроки соблюдены идеально, а атмосфера передана на все 100%.", author: "Александр В." },
+                        { text: "Сотрудничаем уже год. Всегда высочайшее качество, внимание к мельчайшим деталям и оперативное внесение правок.", author: "Мария С., Дизайнер" },
+                        { text: "Помогли продать коммерческий объект на этапе котлована благодаря потрясающей 3D-анимации. Инвесторы были в восторге.", author: "ГК 'СтройИнвест'" },
+                        { text: "Настоящие профессионалы своего дела. Очень тонко чувствуют свет, композицию и архитектурные особенности проекта.", author: "Дмитрий К." },
+                        { text: "Быстрая обратная связь и абсолютно адекватные цены за такое премиальное качество. Смело рекомендую всем коллегам!", author: "Елена М." },
+                        { text: "Лучшая студия визуализации, с которой мы когда-либо работали. Идеально передали настроение и стилистику нашего нового ЖК.", author: "Алексей П." },
+                        { text: "Спасибо за шикарный проект! Вся коммуникация строилась четко, результат на 10/10. Будем обращаться еще.", author: "Анна Т." }
+                    ];
+
+                    reviews.forEach((review, index) => {
+                        const spanClass = index === 6 ? 'md:col-span-2 lg:col-span-1' : ''; 
+                        document.write(`
+                            <div class="bg-gray-900/30 p-8 rounded-xl border border-white/5 hover:bg-gray-900/60 transition ${spanClass}">
+                                <div class="flex gap-1 mb-5">${starsHTML}</div>
+                                <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"${review.text}"</p>
+                                <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— ${review.author}</span>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+        </section>
+
+        <section id="renders" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
+            <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
+                <button onclick="showPage('home')" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
+                <h2 class="text-3xl font-light uppercase tracking-widest">Классические <span class="font-medium">Рендеры</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10" id="renders-container">
+                <script>
+                    const renderImages = [
+                        "https://lh3.googleusercontent.com/d/1mNQofYLKIGtXho--2Flr9BLOSvAPuvfS",
+                        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop"
+                    ];
+                    
+                    for(let i = 1; i <= 20; i++) {
+                        let img = renderImages[i % 4];
+                        let desc = i % 2 === 0 
+                            ? "Фотореалистичный экстерьер. Настройка освещения для создания атмосферы глубоких сумерек (deep twilight blue hour)."
+                            : "Детальная проработка материалов и текстур. Точный контроль света для достижения максимального реализма.";
+                        
+                        document.write(`
+                            <div class="group flex flex-col">
+                                <div class="portfolio-card cursor-pointer overflow-hidden rounded-xl bg-gray-900 aspect-[4/3] w-full">
+                                    <img src="${img}" class="lightbox-trigger w-full h-full object-cover" alt="Render ${i}">
+                                </div>
+                                <div class="mt-4 px-1">
+                                    <h3 class="text-white text-sm font-medium tracking-widest uppercase">Проект ${String(i).padStart(2, '0')}</h3>
+                                    <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">${desc}</p>
+                                </div>
+                            </div>
+                        `);
+                    }
+                </script>
+            </div>
+        </section>
+
+        <section id="video" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
+            <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
+                <button onclick="showPage('home')" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
+                <h2 class="text-3xl font-light uppercase tracking-widest">Анимация & <span class="font-medium">Видео</span></h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+                <div class="flex flex-col group">
+                    <div class="w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="mt-4 px-1">
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Масштабный Экстерьер</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Архитектурный облет. Использование данных с дрона DJI Mini 4K для точной реконструкции и интеграции в окружение.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col group">
+                    <div class="w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="mt-4 px-1">
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Динамика Интерьера</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Динамическая визуализация объекта. Плавная анимация камеры и демонстрация работы освещения в течение дня.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col group">
+                    <div class="w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="mt-4 px-1">
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Презентация ЖК</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Рекламный ролик жилого комплекса. Акцент на инфраструктуру, зоны отдыха и фасадные решения.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col group">
+                    <div class="w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="mt-4 px-1">
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Коммерческий Объект</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Кинематографический облет бизнес-центра с акцентом на входные группы и вечернюю подсветку.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col group">
+                    <div class="w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="mt-4 px-1">
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Детализация фасада</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Фокус на архитектурных элементах. Крупные планы материалов отделки, созданные с использованием Chaos Vantage.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col group">
+                    <div class="w-full aspect-video bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/VIDEO_ID_6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="mt-4 px-1">
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Ландшафтный дизайн</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Пролет над благоустроенной территорией. Демонстрация озеленения, дорожек и малых архитектурных форм.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="post" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
+            <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
+                <button onclick="showPage('home')" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
+                <h2 class="text-3xl font-light uppercase tracking-widest">Художественная <span class="font-medium">Пост-обработка</span></h2>
+            </div>
+            
+            <div class="flex flex-col gap-16">
+                <div class="flex flex-col gap-4">
+                    <div class="comparison-slider-wrapper relative w-full aspect-[4/3] md:aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
+                        <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2027&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="После">
+                        <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">После</span>
+                        <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
+                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="До">
+                            <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">До</span>
+                        </div>
+                        <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
+                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] border-2 border-gray-200"><svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg></div>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
+                    </div>
+                    <div class="px-1">
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Интеграция в среду</h3>
+                        <p class="text-gray-400 text-xs mt-1 font-light leading-relaxed">Интеграция 3D-модели в реальное окружение. Цветокоррекция и добавление реалистичных атмосферных эффектов.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <div class="comparison-slider-wrapper relative w-full aspect-[4/3] md:aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="После">
+                        <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">После</span>
+                        <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="До">
+                            <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">До</span>
+                        </div>
+                        <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
+                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] border-2 border-gray-200"><svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg></div>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
+                    </div>
+                    <div class="px-1">
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Глубина "Синего часа"</h3>
+                        <p class="text-gray-400 text-xs mt-1 font-light leading-relaxed">Художественная обработка вечернего освещения. Усиление глубины кадра (deep twilight blue hour) и балансировка теней.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <div class="comparison-slider-wrapper relative w-full aspect-[4/3] md:aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="После">
+                        <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">После</span>
+                        <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
+                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="До">
+                            <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">До</span>
+                        </div>
+                        <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
+                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] border-2 border-gray-200"><svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg></div>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
+                    </div>
+                    <div class="px-1">
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Коррекция геометрии и текстур</h3>
+                        <p class="text-gray-400 text-xs mt-1 font-light leading-relaxed">Доработка сырого рендера (и данных из RealityCapture). Очистка артефактов и повышение контрастности деталей фасада.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <div class="comparison-slider-wrapper relative w-full aspect-[4/3] md:aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="После">
+                        <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">После</span>
+                        <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
+                            <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2027&auto=format&fit=crop" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="До">
+                            <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">До</span>
+                        </div>
+                        <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
+                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] border-2 border-gray-200"><svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg></div>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
+                    </div>
+                    <div class="px-1">
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Настройка атмосферы</h3>
+                        <p class="text-gray-400 text-xs mt-1 font-light leading-relaxed">Добавление объемного света, тумана и бликов для придания изображению кинематографического вида.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <div class="comparison-slider-wrapper relative w-full aspect-[4/3] md:aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2053&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="После">
+                        <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">После</span>
+                        <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1935&auto=format&fit=crop" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="До">
+                            <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">До</span>
+                        </div>
+                        <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
+                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] border-2 border-gray-200"><svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg></div>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
+                    </div>
+                    <div class="px-1">
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Финальная цветокоррекция</h3>
+                        <p class="text-gray-400 text-xs mt-1 font-light leading-relaxed">Выравнивание тонов, акцентирование внимания на ключевых зонах проекта и усиление общей сочности картинки.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ai" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
+             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
+                <button onclick="showPage('home')" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
+                <h2 class="text-3xl font-light uppercase tracking-widest">Нейросети & <span class="font-medium">ИИ Контент</span></h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+                <div class="flex flex-col gap-12">
+                    <div class="flex flex-col group">
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 1">
+                        </div>
+                        <div class="mt-4 px-1">
+                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">ИИ Концепт Фасада</h3>
+                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Генерация архитектурного концепта через ComfyUI. Поиск идеальной композиции с помощью модели FLUX.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col group">
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=2027&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 2">
+                        </div>
+                        <div class="mt-4 px-1">
+                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Мудборд Интерьера</h3>
+                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Генерация стилистических направлений для интерьера. Быстрый перебор вариантов освещения и материалов.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col group">
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 3">
+                        </div>
+                        <div class="mt-4 px-1">
+                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Ландшафтные идеи</h3>
+                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Быстрое прототипирование благоустройства территории на базе простых объемных набросков.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col group">
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 4">
+                        </div>
+                        <div class="mt-4 px-1">
+                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Вариативность Текстур</h3>
+                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">ИИ-ассистирование при подборе текстур кирпича и дерева для утверждения с заказчиком.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col group">
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 5">
+                        </div>
+                        <div class="mt-4 px-1">
+                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Эскизное Предложение</h3>
+                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Трансформация чернового чертежа в красочную подачу за несколько минут для тендерной заявки.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col group">
+                        <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 6">
+                        </div>
+                        <div class="mt-4 px-1">
+                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Детализация Малых Форм</h3>
+                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">ИИ-генерация уникальных элементов декора и осветительных приборов для уличных зон.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-12">
+                    <div class="flex flex-col group">
+                        <div class="w-full aspect-[4/3] bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/AI_VIDEO_ID_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="mt-4 px-1">
+                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">AI Анимация 01</h3>
+                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">ИИ-анимация статического рендера (использована модель HunyuanVideo). Создание плавных переходов.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col group">
+                        <div class="w-full aspect-[4/3] bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/AI_VIDEO_ID_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="mt-4 px-1">
+                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Динамика Света</h3>
+                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Эксперимент с ИИ для создания эффекта движущегося солнца и оживления окружения.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col group">
+                        <div class="w-full aspect-[4/3] bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/AI_VIDEO_ID_3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="mt-4 px-1">
+                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Концептуальное Видео</h3>
+                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Оживление скетчей заказчика в полноценное атмосферное видео для презентации инвесторам.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col group">
+                        <div class="w-full aspect-[4/3] bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/AI_VIDEO_ID_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="mt-4 px-1">
+                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">ИИ-Трансформация</h3>
+                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Демонстрация плавного перехода между сезонами (лето/зима) на базе одного кадра.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col group">
+                        <div class="w-full aspect-[4/3] bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/AI_VIDEO_ID_5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="mt-4 px-1">
+                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Генерация Среды</h3>
+                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Создание реалистичного трафика людей и автомобилей поверх статичного рендера.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col group">
+                        <div class="w-full aspect-[4/3] bg-gray-900 rounded-xl overflow-hidden shadow-2xl">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/AI_VIDEO_ID_6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="mt-4 px-1">
+                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Стилизация Архитектуры</h3>
+                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Применение различных художественных стилей (акварель, скетч) к готовому 3D-ролику.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacts" class="page-section min-h-[70vh] flex items-center justify-center pt-24 px-6">
+            <div class="max-w-2xl text-center">
+                <h2 class="text-4xl font-light mb-8 uppercase tracking-widest">Давайте <span class="font-medium">работать</span></h2>
+                <p class="text-lg text-gray-400 mb-12 font-light">Открыты к предложениям, коммерческим заказам и долгосрочному сотрудничеству.</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <button onclick="openQuoteModal()" class="px-10 py-4 bg-white text-black font-medium hover:bg-gray-300 transition min-w-[220px] rounded uppercase tracking-wider text-sm shadow-xl">
+                        Написать Email
+                    </button>
+                    <a href="https://wa.me/13057101488" target="_blank" rel="noopener noreferrer" class="px-10 py-4 border border-white/50 hover:border-white transition min-w-[220px] rounded uppercase tracking-wider text-sm flex justify-center items-center gap-2">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // 1. Логика переключения страниц
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            if(pageId === 'post') {
+                setTimeout(resizeAllImages, 50);
+            }
+        }
+
+        // 2. Логика модального окна "Request a Quote"
+        function openQuoteModal() {
+            const modal = document.getElementById('quote-modal');
+            const content = document.getElementById('quote-modal-content');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeQuoteModal() {
+            const modal = document.getElementById('quote-modal');
+            const content = document.getElementById('quote-modal-content');
+            modal.classList.add('opacity-0');
+            content.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        document.getElementById('quote-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeQuoteModal();
+        });
+
+        // 3. Логика интерактивных слайдеров "До/После"
+        function initSliders() {
+            document.querySelectorAll('.comparison-slider-wrapper').forEach(wrapper => {
+                const slider = wrapper.querySelector('.comparison-slider');
+                const beforeContainer = wrapper.querySelector('.before-image-container');
+                const sliderButton = wrapper.querySelector('.slider-button');
+
+                if (slider) {
+                    slider.addEventListener('input', (e) => {
+                        const val = e.target.value;
+                        beforeContainer.style.width = `${val}%`;
+                        sliderButton.style.left = `${val}%`;
+                    });
+                }
+            });
+        }
+
+        function resizeAllImages() {
+            document.querySelectorAll('.comparison-slider-wrapper').forEach(wrapper => {
+                const beforeImage = wrapper.querySelector('.before-image');
+                if (beforeImage) {
+                    beforeImage.style.width = wrapper.offsetWidth + 'px';
+                }
+            });
+        }
+
+        // 4. Логика Лайтбокса
+        let lightboxImages = [];
+        let currentImgIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function initLightbox() {
+            const triggers = document.querySelectorAll('.lightbox-trigger');
+            lightboxImages = Array.from(triggers).map(img => img.src);
+            
+            triggers.forEach((trigger, index) => {
+                const card = trigger.closest('.portfolio-card') || trigger.closest('.comparison-slider-wrapper');
+                if(card && !trigger.closest('.comparison-slider-wrapper')) {
+                    card.addEventListener('click', () => openLightbox(index));
+                }
+            });
+
+            lightbox.addEventListener('click', (e) => {
+                if(e.target === lightbox) closeLightbox();
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if(!lightbox.classList.contains('hidden')) {
+                    if(e.key === 'Escape') closeLightbox();
+                    if(e.key === 'ArrowLeft') prevImage(e);
+                    if(e.key === 'ArrowRight') nextImage(e);
+                }
+            });
+        }
+
+        function openLightbox(index) {
+            currentImgIndex = index;
+            lightboxImg.src = lightboxImages[currentImgIndex];
+            lightbox.classList.remove('hidden');
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+                lightboxImg.classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0');
+            lightboxImg.classList.add('scale-95');
+            setTimeout(() => lightbox.classList.add('hidden'), 300);
+        }
+
+        function nextImage(e) {
+            if(e) e.stopPropagation();
+            currentImgIndex = (currentImgIndex + 1) % lightboxImages.length;
+            lightboxImg.src = lightboxImages[currentImgIndex];
+        }
+
+        function prevImage(e) {
+            if(e) e.stopPropagation();
+            currentImgIndex = (currentImgIndex - 1 + lightboxImages.length) % lightboxImages.length;
+            lightboxImg.src = lightboxImages[currentImgIndex];
+        }
+
+        window.addEventListener('resize', resizeAllImages);
+        window.addEventListener('load', () => {
+            initSliders();
+            resizeAllImages();
+            initLightbox();
+        });
+    </script>
+</body>
+</html>
