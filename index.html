@@ -18,6 +18,11 @@
             overflow-x: hidden;
         }
 
+        #main-content {
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+
         .fade-up {
             animation: fadeUpAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
@@ -122,9 +127,9 @@
         </div>
     </nav>
 
-    <main class="pt-24 md:pt-20">
+    <main id="main-content" class="pt-24 md:pt-20">
 
-        <section id="why-us" class="page-section active min-h-screen pt-20 pb-24 px-6 max-w-5xl mx-auto flex flex-col justify-center gap-20">
+        <section id="why-us" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-5xl mx-auto flex flex-col justify-center gap-20">
             
             <div class="fade-up flex flex-col md:flex-row gap-8 md:gap-12 items-start">
                 <div class="w-14 h-14 shrink-0 text-white/80 p-3 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
@@ -191,7 +196,7 @@
                 <div onclick="window.location.hash='video'" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-200 shadow-xl">
                     <img src="https://picsum.photos/seed/hub_anim/1920/1080" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100" alt="Animation Hub">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
-                        <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Animation</h2>
+                        <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Animation & AI</h2>
                     </div>
                 </div>
                 <div onclick="window.location.hash='before-after'" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-300 shadow-xl">
@@ -230,29 +235,31 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-up delay-200">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-up delay-200" id="reviews-container">
                 <script>
                     const starsHTML = Array(5).fill('<svg class="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>').join('');
                     const reviews = [
-                        { text: "Excellent work! The renders exceeded all our expectations. Deadlines were met perfectly, and the atmosphere was captured 100%.", author: "Alexander V." },
-                        { text: "We've been collaborating for a year. Always the highest quality, attention to the smallest details, and prompt revisions.", author: "Maria S., Designer" },
-                        { text: "Helped us sell a commercial property at the excavation stage thanks to stunning 3D animation. The investors were thrilled.", author: "StroyInvest Group" },
-                        { text: "True professionals. They have a very subtle feel for light, composition, and the architectural features of the project.", author: "Dmitry K." },
-                        { text: "Fast feedback and absolutely reasonable prices for such premium quality. I highly recommend them to all colleagues!", author: "Elena M." },
-                        { text: "The best visualization studio we have ever worked with. They perfectly conveyed the mood and style of our new residential complex.", author: "Alexey P." },
-                        { text: "Thank you for a gorgeous project! All communication was clear, result is 10/10. We will definitely work with you again.", author: "Anna T." }
+                        { text: "Outstanding precision and creativity. Their visualization helped us win the bid for a major NYC project.", author: "James Miller, USA" },
+                        { text: "A truly reliable partner. The attention to material details and lighting in European architecture is unmatched.", author: "Hans Schmidt, Germany" },
+                        { text: "Stunning aesthetic storytelling. They don't just render; they capture the soul of the building.", author: "Sophia Laurent, France" },
+                        { text: "Fast turnaround and exceptional quality. Exactly what our design team needed to meet our tight deadlines.", author: "Ethan O'Connor, Canada" },
+                        { text: "The AI-enhanced production is a game changer. Exceptional workflow and professional communication.", author: "Robert Wilson, UK" },
+                        { text: "I've worked with many studios, but their artistic approach to lighting is on another level.", author: "Carlos Martinez, Spain" },
+                        { text: "Their animation work is breathtaking. Highly recommend for anyone looking for high-end cinematic visualization.", author: "Emily Watson, USA" }
                     ];
 
+                    let reviewsHTML = '';
                     reviews.forEach((review, index) => {
                         const spanClass = index === 6 ? 'md:col-span-2 lg:col-span-1' : ''; 
-                        document.write(`
+                        reviewsHTML += `
                             <div class="bg-gray-900/30 p-8 rounded-xl border border-white/5 hover:bg-gray-900/60 transition ${spanClass}">
                                 <div class="flex gap-1 mb-5">${starsHTML}</div>
                                 <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"${review.text}"</p>
                                 <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— ${review.author}</span>
                             </div>
-                        `);
+                        `;
                     });
+                    document.write(reviewsHTML);
                 </script>
             </div>
         </section>
@@ -285,19 +292,19 @@
         <section id="video" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
-                <h2 class="text-3xl font-light uppercase tracking-widest">Animation & <span class="font-medium">Video</span></h2>
+                <h2 class="text-3xl font-light uppercase tracking-widest">Animation & <span class="font-medium">AI</span></h2>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
-                        <img src="assets/1_Video_Preview.jpg" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 1">
+                        <img src="https://picsum.photos/seed/anim_vid_1/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 1">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
                                 <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
                             </div>
                         </div>
-                        <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/G-lFuq2a8S0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Large-scale Exterior</h3>
@@ -316,8 +323,8 @@
                         <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
-                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Interior Dynamics</h3>
-                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Dynamic visualization of the object. Smooth camera animation demonstrating lighting conditions throughout the day.</p>
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">AI Animation</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">AI-driven animation of a static render. Creating seamless transitions and fluid camera movements.</p>
                     </div>
                 </div>
 
@@ -332,8 +339,8 @@
                         <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
-                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Residential Complex</h3>
-                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Promotional video for a residential complex, highlighting infrastructure, recreation areas, and facade solutions.</p>
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Conceptual Video</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Bringing client sketches to life as a fully immersive atmospheric video for investor presentations.</p>
                     </div>
                 </div>
 
@@ -348,8 +355,8 @@
                         <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
-                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Commercial Property</h3>
-                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Cinematic flythrough of a business center focusing on the entrance areas and evening illumination.</p>
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Interior Dynamics</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Dynamic visualization of the object. Smooth camera animation demonstrating lighting conditions throughout the day.</p>
                     </div>
                 </div>
 
@@ -380,8 +387,8 @@
                         <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
-                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Landscape Design</h3>
-                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Flyover of a landscaped area. Demonstration of green spaces, pathways, and small architectural forms.</p>
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">AI Transformation</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Demonstrating a seamless transition between seasons (summer/winter) derived from a single frame.</p>
                     </div>
                 </div>
             </div>
@@ -500,10 +507,8 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="panoramas-grid">
                 <script>
                     for(let i=1; i<=6; i++) {
-                        // The thumbnail for the grid (16:9)
                         let thumbUrl = `https://picsum.photos/seed/pano_thumb_${i}/1920/1080`;
-                        // The actual full-res panorama URL (4000x2000 used here for placeholder stability, will accept 8000x4000)
-                        let panoUrl = `https://picsum.photos/seed/pano_full_${i}/4000/2000`;
+                        let panoUrl = `https://picsum.photos/seed/pano_full_${i}/4000/2000`; // Change to your 8000x4000 image URL later
                         
                         document.write(`
                             <div class="flex flex-col group">
@@ -799,11 +804,13 @@
         }
 
         window.addEventListener('resize', resizeAllImages);
-        window.addEventListener('load', () => {
+        window.addEventListener('DOMContentLoaded', () => {
             handleRouting();
             initSliders();
             resizeAllImages();
             initLightbox();
+            // Fix F5 flickering
+            document.getElementById('main-content').style.opacity = '1';
         });
     </script>
 </body>
