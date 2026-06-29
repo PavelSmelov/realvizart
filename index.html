@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -62,7 +64,6 @@
 </head>
 <body class="antialiased text-gray-200">
 
-    <!-- LIGHTBOX -->
     <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
         <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/50 hover:text-white transition z-50">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -76,7 +77,14 @@
         </button>
     </div>
 
-    <!-- REQUEST A QUOTE MODAL -->
+    <div id="pano-lightbox" class="fixed inset-0 z-[120] bg-black hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
+        <button onclick="closePanorama()" class="absolute top-6 right-6 text-white/70 hover:text-white transition z-50 flex items-center gap-2 bg-black/40 hover:bg-black/60 px-5 py-2.5 rounded-lg backdrop-blur-md border border-white/10">
+            <span class="uppercase tracking-widest text-sm font-medium">Cancel</span>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div id="panorama-container" class="w-full h-full"></div>
+    </div>
+
     <div id="quote-modal" class="fixed inset-0 z-[110] bg-black/80 backdrop-blur-sm hidden flex items-center justify-center opacity-0 transition-opacity duration-300 px-4">
         <div class="bg-[#111111] border border-white/10 p-8 md:p-10 rounded-xl w-full max-w-lg relative transform scale-95 transition-transform duration-300 shadow-2xl" id="quote-modal-content">
             <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-gray-500 hover:text-white transition">
@@ -100,7 +108,6 @@
         </div>
     </div>
 
-    <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
         <div class="max-w-[1400px] mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
             <a href="#why-us" class="text-xl font-light tracking-widest uppercase mb-4 md:mb-0 hover:text-gray-300 transition">
@@ -115,13 +122,10 @@
         </div>
     </nav>
 
-    <!-- MAIN CONTAINER -->
     <main class="pt-24 md:pt-20">
 
-        <!-- 1. WHY US (HOME) -->
-        <section id="why-us" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-5xl mx-auto flex flex-col justify-center gap-20">
+        <section id="why-us" class="page-section active min-h-screen pt-20 pb-24 px-6 max-w-5xl mx-auto flex flex-col justify-center gap-20">
             
-            <!-- Who We Are -->
             <div class="fade-up flex flex-col md:flex-row gap-8 md:gap-12 items-start">
                 <div class="w-14 h-14 shrink-0 text-white/80 p-3 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
@@ -134,7 +138,6 @@
                 </div>
             </div>
 
-            <!-- What We Do -->
             <div class="fade-up delay-100 flex flex-col md:flex-row gap-8 md:gap-12 items-start">
                 <div class="w-14 h-14 shrink-0 text-white/80 p-3 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
@@ -153,7 +156,6 @@
                 </div>
             </div>
 
-            <!-- Why Choose Us -->
             <div class="fade-up delay-200 flex flex-col md:flex-row gap-8 md:gap-12 items-start">
                 <div class="w-14 h-14 shrink-0 text-white/80 p-3 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-full h-full"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
@@ -173,7 +175,6 @@
             
         </section>
 
-        <!-- 2. PORTFOLIO HUB -->
         <section id="home" class="page-section px-4 md:px-6 pb-12 min-h-[calc(100vh-80px)] flex flex-col items-center justify-center max-w-[1600px] mx-auto pt-6">
             <div class="text-center w-full mb-10 fade-up">
                 <h1 class="text-3xl md:text-4xl font-light tracking-widest uppercase">Portfolio</h1>
@@ -199,16 +200,15 @@
                         <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">Before & After</h2>
                     </div>
                 </div>
-                <div onclick="window.location.hash='ai'" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-400 shadow-xl">
-                    <img src="https://picsum.photos/seed/hub_ai/1920/1080" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100" alt="AI Hub">
+                <div onclick="window.location.hash='panoramas'" class="group relative cursor-pointer rounded-xl overflow-hidden bg-gray-900 aspect-[16/9] fade-up delay-400 shadow-xl">
+                    <img src="https://picsum.photos/seed/hub_pano/1920/1080" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-60 group-hover:opacity-100" alt="Panoramas Hub">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 transition-opacity duration-500">
-                        <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">AI Content</h2>
+                        <h2 class="text-2xl md:text-3xl font-light text-white tracking-widest uppercase mb-2">360° Panoramas</h2>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. GOOGLE REVIEWS SECTION -->
         <section id="reviews" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <h2 class="text-3xl font-light mb-12 uppercase tracking-widest border-b border-gray-800 pb-4">Google <span class="font-medium">Reviews</span></h2>
             
@@ -257,7 +257,6 @@
             </div>
         </section>
 
-        <!-- PORTFOLIO: RENDERS (6 PROJECTS CARDS) -->
         <section id="renders" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
@@ -265,11 +264,9 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10" id="renders-container">
-                <!-- Cards generated via JS below -->
-            </div>
+                </div>
         </section>
 
-        <!-- HIDDEN SECTION: PROJECT GALLERY -->
         <section id="project-view" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center justify-between mb-12 border-b border-gray-800 pb-4">
                 <div class="flex items-center gap-4">
@@ -282,11 +279,9 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="project-images-grid">
-                <!-- Content injected dynamically -->
-            </div>
+                </div>
         </section>
 
-        <!-- PORTFOLIO: ANIMATION (YouTube Embeds with custom previews) -->
         <section id="video" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
@@ -294,7 +289,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-                <!-- Video 1 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                         <img src="https://picsum.photos/seed/anim_vid_1/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 1">
@@ -311,7 +305,6 @@
                     </div>
                 </div>
 
-                <!-- Video 2 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                         <img src="https://picsum.photos/seed/anim_vid_2/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 2">
@@ -328,7 +321,6 @@
                     </div>
                 </div>
 
-                <!-- Video 3 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                         <img src="https://picsum.photos/seed/anim_vid_3/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 3">
@@ -345,7 +337,6 @@
                     </div>
                 </div>
 
-                <!-- Video 4 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                         <img src="https://picsum.photos/seed/anim_vid_4/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 4">
@@ -362,7 +353,6 @@
                     </div>
                 </div>
 
-                <!-- Video 5 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                         <img src="https://picsum.photos/seed/anim_vid_5/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 5">
@@ -379,7 +369,6 @@
                     </div>
                 </div>
 
-                <!-- Video 6 -->
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
                         <img src="https://picsum.photos/seed/anim_vid_6/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 6">
@@ -398,7 +387,6 @@
             </div>
         </section>
 
-        <!-- PORTFOLIO: BEFORE & AFTER (5 SLIDERS) -->
         <section id="before-after" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
@@ -406,7 +394,6 @@
             </div>
             
             <div class="flex flex-col gap-16">
-                <!-- Slider 1 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://picsum.photos/seed/ba_1_after/1920/1080" class="absolute inset-0 w-full h-full object-cover" alt="After">
@@ -426,7 +413,6 @@
                     </div>
                 </div>
 
-                <!-- Slider 2 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://picsum.photos/seed/ba_2_after/1920/1080" class="absolute inset-0 w-full h-full object-cover" alt="After">
@@ -446,7 +432,6 @@
                     </div>
                 </div>
 
-                <!-- Slider 3 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://picsum.photos/seed/ba_3_after/1920/1080" class="absolute inset-0 w-full h-full object-cover" alt="After">
@@ -466,7 +451,6 @@
                     </div>
                 </div>
 
-                <!-- Slider 4 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://picsum.photos/seed/ba_4_after/1920/1080" class="absolute inset-0 w-full h-full object-cover" alt="After">
@@ -486,7 +470,6 @@
                     </div>
                 </div>
 
-                <!-- Slider 5 -->
                 <div class="flex flex-col gap-4">
                     <div class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://picsum.photos/seed/ba_5_after/1920/1080" class="absolute inset-0 w-full h-full object-cover" alt="After">
@@ -508,132 +491,41 @@
             </div>
         </section>
 
-        <!-- PORTFOLIO: AI CONTENT (4 Images + 4 YouTube Videos) -->
-        <section id="ai" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
+        <section id="panoramas" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
              <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
-                <h2 class="text-3xl font-light uppercase tracking-widest">AI <span class="font-medium">Content</span></h2>
+                <h2 class="text-3xl font-light uppercase tracking-widest">360° <span class="font-medium">Panoramas</span></h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-                <!-- LEFT COLUMN (4 Images) -->
-                <div class="flex flex-col gap-12" id="ai-photos-grid">
-                    <div class="flex flex-col group">
-                        <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
-                            <img src="https://picsum.photos/seed/ai_photo_1/1920/1080" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 1">
-                        </div>
-                        <div class="mt-4 px-1">
-                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">AI Facade Concept</h3>
-                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Architectural concept generation using advanced AI workflows to find the perfect composition.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col group">
-                        <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
-                            <!-- Изменен SEED для избежания вертикального кадра -->
-                            <img src="https://picsum.photos/seed/interior_moodboard_16x9/1920/1080" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 2">
-                        </div>
-                        <div class="mt-4 px-1">
-                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Interior Moodboard</h3>
-                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Generating stylistic directions for interiors. Rapid iteration of lighting setups and material selections.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col group">
-                        <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
-                            <img src="https://picsum.photos/seed/ai_photo_3/1920/1080" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 3">
-                        </div>
-                        <div class="mt-4 px-1">
-                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Landscape Ideas</h3>
-                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Rapid prototyping of site landscaping based on simple volumetric sketches.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col group">
-                        <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer">
-                            <img src="https://picsum.photos/seed/ai_photo_4/1920/1080" class="lightbox-trigger w-full h-full object-cover" alt="AI Photo 4">
-                        </div>
-                        <div class="mt-4 px-1">
-                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Texture Variations</h3>
-                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">AI-assisted texture selection for brickwork and wood, enabling rapid client approval.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- RIGHT COLUMN (4 YouTube Videos with custom previews) -->
-                <div class="flex flex-col gap-12">
-                    <div class="flex flex-col">
-                        <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
-                            <!-- YOUR PREVIEW IMAGE -->
-                            <img src="https://picsum.photos/seed/ai_vid_1/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
-                            <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
-                                <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
-                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="panoramas-grid">
+                <script>
+                    for(let i=1; i<=6; i++) {
+                        // The thumbnail for the grid (16:9)
+                        let thumbUrl = `https://picsum.photos/seed/pano_thumb_${i}/1920/1080`;
+                        // The actual full-res panorama URL (4000x2000 used here for placeholder stability, will accept 8000x4000)
+                        let panoUrl = `https://picsum.photos/seed/pano_full_${i}/4000/2000`;
+                        
+                        document.write(`
+                            <div class="flex flex-col group">
+                                <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer" onclick="openPanorama('${panoUrl}')">
+                                    <img src="${thumbUrl}" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="360 Panorama ${i}">
+                                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none">
+                                        <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50">
+                                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-4 px-1">
+                                    <h3 class="text-white text-sm font-medium tracking-widest uppercase">360° Space ${String(i).padStart(2, '0')}</h3>
+                                    <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Immersive spherical panorama. Click and drag to explore the environment in full 360 degrees.</p>
                                 </div>
                             </div>
-                            <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/AI_VIDEO_ID_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="mt-4 px-1">
-                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">AI Animation 01</h3>
-                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">AI-driven animation of a static render. Creating seamless transitions and fluid camera movements.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col">
-                        <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
-                            <!-- YOUR PREVIEW IMAGE -->
-                            <img src="https://picsum.photos/seed/ai_vid_2/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
-                            <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
-                                <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
-                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
-                                </div>
-                            </div>
-                            <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/AI_VIDEO_ID_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="mt-4 px-1">
-                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Light Dynamics</h3>
-                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">AI experiment to simulate dynamic sun movement and breathe life into the environment.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col">
-                        <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
-                            <!-- YOUR PREVIEW IMAGE -->
-                            <img src="https://picsum.photos/seed/ai_vid_3/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
-                            <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
-                                <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
-                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
-                                </div>
-                            </div>
-                            <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/AI_VIDEO_ID_3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="mt-4 px-1">
-                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Conceptual Video</h3>
-                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Bringing client sketches to life as a fully immersive atmospheric video for investor presentations.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col">
-                        <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
-                            <!-- YOUR PREVIEW IMAGE -->
-                            <img src="https://picsum.photos/seed/ai_vid_4/1920/1080" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview">
-                            <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
-                                <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
-                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
-                                </div>
-                            </div>
-                            <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/AI_VIDEO_ID_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <div class="mt-4 px-1">
-                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">AI Transformation</h3>
-                            <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Demonstrating a seamless transition between seasons (summer/winter) derived from a single frame.</p>
-                        </div>
-                    </div>
-                </div>
+                        `);
+                    }
+                </script>
             </div>
         </section>
 
-        <!-- CONTACT -->
         <section id="contacts" class="page-section min-h-[70vh] flex items-center justify-center pt-24 px-6">
             <div class="max-w-2xl text-center">
                 <h2 class="text-4xl font-light mb-8 uppercase tracking-widest">Let's Work <span class="font-medium">Together</span></h2>
@@ -642,7 +534,6 @@
                     <button onclick="openQuoteModal()" class="px-10 py-4 bg-white text-black font-medium hover:bg-gray-300 transition min-w-[220px] rounded uppercase tracking-wider text-sm shadow-xl">
                         Email Us
                     </button>
-                    <!-- WhatsApp Button -->
                     <a href="https://wa.me/13057101488" target="_blank" rel="noopener noreferrer" class="px-10 py-4 border border-white/50 hover:border-white transition min-w-[220px] rounded uppercase tracking-wider text-sm flex justify-center items-center gap-2">
                         WhatsApp
                     </a>
@@ -652,22 +543,21 @@
 
     </main>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
     <script>
         // 1. SPA Page Hash Routing & History
         function handleRouting() {
             let hash = window.location.hash.substring(1);
             if (!hash) {
-                // If there's no hash (e.g. fresh load), set it to #why-us without adding to history
                 window.history.replaceState(null, null, '#why-us');
                 hash = 'why-us';
             }
 
-            // Hide all sections
             document.querySelectorAll('.page-section').forEach(section => {
                 section.classList.remove('active');
             });
 
-            // Handle Dynamic Project Generation Route
             if (hash.startsWith('project-view-')) {
                 let projectId = parseInt(hash.replace('project-view-', ''), 10);
                 if (!projectId) projectId = 1;
@@ -688,13 +578,11 @@
                 const projectView = document.getElementById('project-view');
                 if(projectView) projectView.classList.add('active');
             } 
-            // Handle regular sections
             else {
                 const targetSection = document.getElementById(hash);
                 if (targetSection) {
                     targetSection.classList.add('active');
                 } else {
-                    // Fallback
                     window.history.replaceState(null, null, '#why-us');
                     document.getElementById('why-us').classList.add('active');
                 }
@@ -707,7 +595,6 @@
             }
         }
 
-        // Listen for history back/forward and hash changes
         window.addEventListener('hashchange', handleRouting);
 
         // Project Generation Logic (Still Renders)
@@ -761,7 +648,53 @@
             if (e.target === this) closeQuoteModal();
         });
 
-        // YouTube Video Play Logic (Shows video layer first, then applies autoplay)
+        // 3. Pannellum 360 Logic
+        let currentPano = null;
+
+        function openPanorama(url) {
+            const panoLightbox = document.getElementById('pano-lightbox');
+            panoLightbox.classList.remove('hidden');
+            setTimeout(() => {
+                panoLightbox.classList.remove('opacity-0');
+            }, 10);
+
+            if (currentPano) {
+                currentPano.destroy();
+            }
+
+            // Initialize Pannellum without any controls
+            currentPano = pannellum.viewer('panorama-container', {
+                type: 'equirectangular',
+                panorama: url,
+                autoLoad: true,
+                showControls: false, // Hides all UI buttons
+                keyboardZoom: true,
+                mouseZoom: true
+            });
+        }
+
+        function closePanorama() {
+            const panoLightbox = document.getElementById('pano-lightbox');
+            panoLightbox.classList.add('opacity-0');
+            setTimeout(() => {
+                panoLightbox.classList.add('hidden');
+                if (currentPano) {
+                    currentPano.destroy();
+                    currentPano = null;
+                }
+            }, 300);
+        }
+
+        // Close panorama on escape key
+        document.addEventListener('keydown', (e) => {
+            const panoLightbox = document.getElementById('pano-lightbox');
+            if(e.key === 'Escape' && panoLightbox && !panoLightbox.classList.contains('hidden')) {
+                closePanorama();
+            }
+        });
+
+
+        // 4. YouTube Video Play Logic
         function playYouTubeVideo(container) {
             const thumb = container.querySelector('.video-thumb');
             const playBtn = container.querySelector('.play-btn');
@@ -780,7 +713,7 @@
             }
         }
 
-        // 3. Interactive Before/After Sliders Logic
+        // 5. Interactive Before/After Sliders Logic
         function initSliders() {
             document.querySelectorAll('.comparison-slider-wrapper').forEach(wrapper => {
                 const slider = wrapper.querySelector('.comparison-slider');
@@ -806,7 +739,7 @@
             });
         }
 
-        // 4. Lightbox Logic (Event Delegation)
+        // 6. Lightbox Logic (Event Delegation)
         let lightboxImages = [];
         let currentImgIndex = 0;
         const lightbox = document.getElementById('lightbox');
