@@ -220,7 +220,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10">
                 <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-1'">
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
-                        <img src="assets/project1_thumb_1.jpg" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project 1">
+                        <img src="https://picsum.photos/seed/rc_1/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project 1">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                             <span class="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded backdrop-blur-sm bg-black/30">View Project</span>
                         </div>
@@ -715,56 +715,57 @@
     <script>
         // =========================================================================
         // PROJECT GALLERIES DICTIONARY (Still Renders)
-        // You can replace these 36 URLs with your own lightweight image links
+        // You can replace these URLs with your own lightweight image links
+        // format: { preview: "small_img_url", full: "large_img_url" }
         // =========================================================================
         const projectGalleries = {
             1: [
-                "assets/project1_full_1.jpg",
-                "https://picsum.photos/seed/proj_1_img2/640/360",
-                "https://picsum.photos/seed/proj_1_img3/640/360",
-                "https://picsum.photos/seed/proj_1_img4/640/360",
-                "https://picsum.photos/seed/proj_1_img5/640/360",
-                "https://picsum.photos/seed/proj_1_img6/640/360"
+                { preview: "https://picsum.photos/seed/proj_1_img1/640/360", full: "https://picsum.photos/seed/proj_1_img1_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_1_img2/640/360", full: "https://picsum.photos/seed/proj_1_img2_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_1_img3/640/360", full: "https://picsum.photos/seed/proj_1_img3_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_1_img4/640/360", full: "https://picsum.photos/seed/proj_1_img4_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_1_img5/640/360", full: "https://picsum.photos/seed/proj_1_img5_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_1_img6/640/360", full: "https://picsum.photos/seed/proj_1_img6_full/1920/1080" }
             ],
             2: [
-                "https://picsum.photos/seed/proj_2_img1/640/360",
-                "https://picsum.photos/seed/proj_2_img2/640/360",
-                "https://picsum.photos/seed/proj_2_img3/640/360",
-                "https://picsum.photos/seed/proj_2_img4/640/360",
-                "https://picsum.photos/seed/proj_2_img5/640/360",
-                "https://picsum.photos/seed/proj_2_img6/640/360"
+                { preview: "https://picsum.photos/seed/proj_2_img1/640/360", full: "https://picsum.photos/seed/proj_2_img1_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_2_img2/640/360", full: "https://picsum.photos/seed/proj_2_img2_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_2_img3/640/360", full: "https://picsum.photos/seed/proj_2_img3_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_2_img4/640/360", full: "https://picsum.photos/seed/proj_2_img4_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_2_img5/640/360", full: "https://picsum.photos/seed/proj_2_img5_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_2_img6/640/360", full: "https://picsum.photos/seed/proj_2_img6_full/1920/1080" }
             ],
             3: [
-                "https://picsum.photos/seed/proj_3_img1/640/360",
-                "https://picsum.photos/seed/proj_3_img2/640/360",
-                "https://picsum.photos/seed/proj_3_img3/640/360",
-                "https://picsum.photos/seed/proj_3_img4/640/360",
-                "https://picsum.photos/seed/proj_3_img5/640/360",
-                "https://picsum.photos/seed/proj_3_img6/640/360"
+                { preview: "https://picsum.photos/seed/proj_3_img1/640/360", full: "https://picsum.photos/seed/proj_3_img1_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_3_img2/640/360", full: "https://picsum.photos/seed/proj_3_img2_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_3_img3/640/360", full: "https://picsum.photos/seed/proj_3_img3_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_3_img4/640/360", full: "https://picsum.photos/seed/proj_3_img4_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_3_img5/640/360", full: "https://picsum.photos/seed/proj_3_img5_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_3_img6/640/360", full: "https://picsum.photos/seed/proj_3_img6_full/1920/1080" }
             ],
             4: [
-                "https://picsum.photos/seed/proj_4_img1/640/360",
-                "https://picsum.photos/seed/proj_4_img2/640/360",
-                "https://picsum.photos/seed/proj_4_img3/640/360",
-                "https://picsum.photos/seed/proj_4_img4/640/360",
-                "https://picsum.photos/seed/proj_4_img5/640/360",
-                "https://picsum.photos/seed/proj_4_img6/640/360"
+                { preview: "https://picsum.photos/seed/proj_4_img1/640/360", full: "https://picsum.photos/seed/proj_4_img1_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_4_img2/640/360", full: "https://picsum.photos/seed/proj_4_img2_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_4_img3/640/360", full: "https://picsum.photos/seed/proj_4_img3_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_4_img4/640/360", full: "https://picsum.photos/seed/proj_4_img4_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_4_img5/640/360", full: "https://picsum.photos/seed/proj_4_img5_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_4_img6/640/360", full: "https://picsum.photos/seed/proj_4_img6_full/1920/1080" }
             ],
             5: [
-                "https://picsum.photos/seed/proj_5_img1/640/360",
-                "https://picsum.photos/seed/proj_5_img2/640/360",
-                "https://picsum.photos/seed/proj_5_img3/640/360",
-                "https://picsum.photos/seed/proj_5_img4/640/360",
-                "https://picsum.photos/seed/proj_5_img5/640/360",
-                "https://picsum.photos/seed/proj_5_img6/640/360"
+                { preview: "https://picsum.photos/seed/proj_5_img1/640/360", full: "https://picsum.photos/seed/proj_5_img1_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_5_img2/640/360", full: "https://picsum.photos/seed/proj_5_img2_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_5_img3/640/360", full: "https://picsum.photos/seed/proj_5_img3_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_5_img4/640/360", full: "https://picsum.photos/seed/proj_5_img4_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_5_img5/640/360", full: "https://picsum.photos/seed/proj_5_img5_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_5_img6/640/360", full: "https://picsum.photos/seed/proj_5_img6_full/1920/1080" }
             ],
             6: [
-                "https://picsum.photos/seed/proj_6_img1/640/360",
-                "https://picsum.photos/seed/proj_6_img2/640/360",
-                "https://picsum.photos/seed/proj_6_img3/640/360",
-                "https://picsum.photos/seed/proj_6_img4/640/360",
-                "https://picsum.photos/seed/proj_6_img5/640/360",
-                "https://picsum.photos/seed/proj_6_img6/640/360"
+                { preview: "https://picsum.photos/seed/proj_6_img1/640/360", full: "https://picsum.photos/seed/proj_6_img1_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_6_img2/640/360", full: "https://picsum.photos/seed/proj_6_img2_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_6_img3/640/360", full: "https://picsum.photos/seed/proj_6_img3_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_6_img4/640/360", full: "https://picsum.photos/seed/proj_6_img4_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_6_img5/640/360", full: "https://picsum.photos/seed/proj_6_img5_full/1920/1080" },
+                { preview: "https://picsum.photos/seed/proj_6_img6/640/360", full: "https://picsum.photos/seed/proj_6_img6_full/1920/1080" }
             ]
         };
 
@@ -792,10 +793,13 @@
                 const images = projectGalleries[projectId];
                 let html = '';
                 
-                images.forEach((imgUrl, index) => {
+                images.forEach((img, index) => {
+                    const previewUrl = img.preview ? img.preview : img;
+                    const fullUrl = img.full ? img.full : img;
+
                     html += `
                         <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] portfolio-card cursor-pointer">
-                            <img src="${imgUrl}" class="lightbox-trigger w-full h-full object-cover" alt="Image ${index + 1}">
+                            <img src="${previewUrl}" data-full="${fullUrl}" class="lightbox-trigger w-full h-full object-cover" alt="Image ${index + 1}">
                         </div>
                     `;
                 });
@@ -932,7 +936,7 @@
                     const grid = e.target.closest('.grid');
                     if(grid) {
                         const siblings = grid.querySelectorAll('.lightbox-trigger');
-                        lightboxImages = Array.from(siblings).map(img => img.src);
+                        lightboxImages = Array.from(siblings).map(img => img.getAttribute('data-full') || img.src);
                         currentImgIndex = Array.from(siblings).indexOf(e.target);
                         openLightboxContext();
                     }
