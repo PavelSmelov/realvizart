@@ -70,23 +70,6 @@
             cursor: ew-resize;
             background: transparent;
         }
-
-        /* Custom Fullscreen Class (Bypasses iframe restrictions) */
-        .slider-fullscreen-mode {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100vw !important;
-            height: 100vh !important;
-            max-width: none !important;
-            z-index: 150 !important;
-            border-radius: 0 !important;
-            background-color: #000 !important;
-            margin: 0 !important;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
     </style>
 </head>
 <body class="antialiased text-gray-200">
@@ -248,7 +231,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10">
                 <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-1'">
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
-                        <!-- REPLACE URL -->
+                        <!-- REPLACE URL: Вставьте сюда маленькую легкую картинку (обложка Проекта 1) -->
                         <img src="https://picsum.photos/seed/rc_1/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project 1">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                             <span class="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded backdrop-blur-sm bg-black/30">View Project</span>
@@ -262,7 +245,7 @@
 
                 <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-2'">
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
-                        <!-- REPLACE URL -->
+                        <!-- REPLACE URL: Вставьте сюда маленькую легкую картинку (обложка Проекта 2) -->
                         <img src="https://picsum.photos/seed/rc_2/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project 2">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                             <span class="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded backdrop-blur-sm bg-black/30">View Project</span>
@@ -276,7 +259,7 @@
 
                 <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-3'">
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
-                        <!-- REPLACE URL -->
+                        <!-- REPLACE URL: Вставьте сюда маленькую легкую картинку (обложка Проекта 3) -->
                         <img src="https://picsum.photos/seed/rc_3/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project 3">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                             <span class="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded backdrop-blur-sm bg-black/30">View Project</span>
@@ -290,7 +273,7 @@
 
                 <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-4'">
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
-                        <!-- REPLACE URL -->
+                        <!-- REPLACE URL: Вставьте сюда маленькую легкую картинку (обложка Проекта 4) -->
                         <img src="https://picsum.photos/seed/rc_4/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project 4">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                             <span class="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded backdrop-blur-sm bg-black/30">View Project</span>
@@ -304,7 +287,7 @@
 
                 <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-5'">
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
-                        <!-- REPLACE URL -->
+                        <!-- REPLACE URL: Вставьте сюда маленькую легкую картинку (обложка Проекта 5) -->
                         <img src="https://picsum.photos/seed/rc_5/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project 5">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                             <span class="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded backdrop-blur-sm bg-black/30">View Project</span>
@@ -318,7 +301,7 @@
 
                 <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-6'">
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
-                        <!-- REPLACE URL -->
+                        <!-- REPLACE URL: Вставьте сюда маленькую легкую картинку (обложка Проекта 6) -->
                         <img src="https://picsum.photos/seed/rc_6/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project 6">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                             <span class="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded backdrop-blur-sm bg-black/30">View Project</span>
@@ -478,16 +461,32 @@
                             <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">Before</span>
                         </div>
                         
+        <!-- 6. BEFORE & AFTER (5 SLIDERS) -->
+        <section id="before-after" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
+            <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
+                <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
+                <h2 class="text-3xl font-light uppercase tracking-widest">Before & <span class="font-medium">After</span></h2>
+            </div>
+            
+            <div class="flex flex-col gap-16">
+                <!-- Slider 1 -->
+                <div class="flex flex-col gap-4">
+                    <div id="slider-block-1" class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
+                        <!-- REPLACE URL: AFTER -->
+                        <img src="https://picsum.photos/seed/ba_1_after/1280/720" class="absolute inset-0 w-full h-full object-cover" alt="After">
+                        <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">After</span>
+                        
+                        <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
+                            <!-- REPLACE URL: BEFORE -->
+                            <img src="https://picsum.photos/seed/ba_1_before/1280/720" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
+                            <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">Before</span>
+                        </div>
+                        
                         <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
                             <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] border-2 border-gray-200"><svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg></div>
                         </div>
                         
                         <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                        
-                        <!-- Expand Button (Uses CSS pseudo-fullscreen) -->
-                        <button onclick="toggleSliderFullscreen('slider-block-1')" class="absolute bottom-6 right-6 z-50 bg-black/70 hover:bg-black border border-white/20 hover:border-white transition-all text-white text-xs uppercase px-4 py-2.5 rounded-lg flex items-center gap-2">
-                            <span class="fullscreen-btn-text">Expand ⛶</span>
-                        </button>
                     </div>
                     <div class="px-1 flex justify-between items-center">
                         <div>
@@ -513,10 +512,6 @@
                         </div>
                         
                         <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                        
-                        <button onclick="toggleSliderFullscreen('slider-block-2')" class="absolute bottom-6 right-6 z-50 bg-black/70 hover:bg-black border border-white/20 hover:border-white transition-all text-white text-xs uppercase px-4 py-2.5 rounded-lg flex items-center gap-2">
-                            <span class="fullscreen-btn-text">Expand ⛶</span>
-                        </button>
                     </div>
                     <div class="px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Deep Twilight Mood</h3>
@@ -540,10 +535,6 @@
                         </div>
                         
                         <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                        
-                        <button onclick="toggleSliderFullscreen('slider-block-3')" class="absolute bottom-6 right-6 z-50 bg-black/70 hover:bg-black border border-white/20 hover:border-white transition-all text-white text-xs uppercase px-4 py-2.5 rounded-lg flex items-center gap-2">
-                            <span class="fullscreen-btn-text">Expand ⛶</span>
-                        </button>
                     </div>
                     <div class="px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Geometry & Texture Correction</h3>
@@ -567,10 +558,6 @@
                         </div>
                         
                         <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                        
-                        <button onclick="toggleSliderFullscreen('slider-block-4')" class="absolute bottom-6 right-6 z-50 bg-black/70 hover:bg-black border border-white/20 hover:border-white transition-all text-white text-xs uppercase px-4 py-2.5 rounded-lg flex items-center gap-2">
-                            <span class="fullscreen-btn-text">Expand ⛶</span>
-                        </button>
                     </div>
                     <div class="px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Atmosphere Setup</h3>
@@ -594,10 +581,6 @@
                         </div>
                         
                         <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                        
-                        <button onclick="toggleSliderFullscreen('slider-block-5')" class="absolute bottom-6 right-6 z-50 bg-black/70 hover:bg-black border border-white/20 hover:border-white transition-all text-white text-xs uppercase px-4 py-2.5 rounded-lg flex items-center gap-2">
-                            <span class="fullscreen-btn-text">Expand ⛶</span>
-                        </button>
                     </div>
                     <div class="px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Final Color Grading</h3>
@@ -719,7 +702,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 fade-up">
                 <div class="bg-gray-900/40 rounded-xl p-8 flex flex-col items-center justify-center text-center border border-white/5 shadow-lg">
-                    <svg class="w-12 h-12 text-gray-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    <svg class="w-12 h-12 text-gray-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                     <span class="text-4xl font-medium text-white mb-2">120+</span>
                     <span class="text-xs uppercase tracking-widest text-gray-400">Completed Projects</span>
                 </div>
@@ -739,38 +722,38 @@
                 <!-- Review 1 -->
                 <div class="bg-gray-900/30 p-8 rounded-xl border border-white/5 hover:bg-gray-900/60 transition">
                     <div class="flex gap-1 mb-5" id="stars-slot-1"></div>
-                    <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"Outstanding precision and creativity. Their visualization helped us win the bid for a major NYC project."</p>
-                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— James Miller, Architect (USA)</span>
+                    <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"Outstanding precision and creativity. Their visualization helped us win the bid for a major project."</p>
+                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— James Miller, Architect</span>
                 </div>
                 <!-- Review 2 -->
                 <div class="bg-gray-900/30 p-8 rounded-xl border border-white/5 hover:bg-gray-900/60 transition">
                     <div class="flex gap-1 mb-5" id="stars-slot-2"></div>
-                    <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"A truly reliable partner. The attention to material details and lighting in European architecture is unmatched."</p>
-                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Hans Schmidt, Lead Designer (Germany)</span>
+                    <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"A truly reliable partner. The attention to material details and lighting in architecture is unmatched."</p>
+                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Hans Schmidt, Lead Designer</span>
                 </div>
                 <!-- Review 3 -->
                 <div class="bg-gray-900/30 p-8 rounded-xl border border-white/5 hover:bg-gray-900/60 transition">
                     <div class="flex gap-1 mb-5" id="stars-slot-3"></div>
                     <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"Stunning aesthetic storytelling. They don't just render; they capture the soul of the building."</p>
-                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Sophia Laurent, Interior Designer (France)</span>
+                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Sophia Laurent, Interior Designer</span>
                 </div>
                 <!-- Review 4 -->
                 <div class="bg-gray-900/30 p-8 rounded-xl border border-white/5 hover:bg-gray-900/60 transition">
                     <div class="flex gap-1 mb-5" id="stars-slot-4"></div>
                     <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"Fast turnaround and exceptional quality. Exactly what our design team needed to meet our tight deadlines."</p>
-                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Ethan O'Connor, Developer (Canada)</span>
+                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Ethan O'Connor, Developer</span>
                 </div>
                 <!-- Review 5 -->
                 <div class="bg-gray-900/30 p-8 rounded-xl border border-white/5 hover:bg-gray-900/60 transition">
                     <div class="flex gap-1 mb-5" id="stars-slot-5"></div>
                     <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"The AI-enhanced production is a game changer. Exceptional workflow and professional communication."</p>
-                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Robert Wilson, Developer (UK)</span>
+                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Robert Wilson, Developer</span>
                 </div>
                 <!-- Review 6 -->
                 <div class="bg-gray-900/30 p-8 rounded-xl border border-white/5 hover:bg-gray-900/60 transition">
                     <div class="flex gap-1 mb-5" id="stars-slot-6"></div>
                     <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"I've worked with many studios, but their artistic approach to lighting is on another level."</p>
-                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Carlos Martinez, Architect (Spain)</span>
+                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Carlos Martinez, Architect</span>
                 </div>
             </div>
         </section>
@@ -800,7 +783,8 @@
     <script>
         // =========================================================================
         // PROJECT GALLERIES DICTIONARY (Still Renders)
-        // You can replace these 36 URLs with your own lightweight image links
+        // ЗАМЕНИТЕ ЭТИ ССЫЛКИ НА ВАШИ ЛЕГКИЕ КАРТИНКИ (МАЛЕНЬКОГО РАЗМЕРА)
+        // Каждая галерея соответствует одному из 6 проектов.
         // =========================================================================
         const projectGalleries = {
             1: [
@@ -961,29 +945,6 @@
                     beforeImage.style.width = wrapper.offsetWidth + 'px';
                 }
             });
-        }
-
-        // Toggles a CSS-based pseudo-fullscreen to bypass iframe restrictions
-        function toggleSliderFullscreen(containerId) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-
-            const btnText = container.querySelector('.fullscreen-btn-text');
-            
-            if (container.classList.contains('slider-fullscreen-mode')) {
-                // Exit pseudo-fullscreen
-                container.classList.remove('slider-fullscreen-mode');
-                if(btnText) btnText.innerText = 'Expand ⛶';
-                document.body.style.overflow = ''; // Restore scrolling
-            } else {
-                // Enter pseudo-fullscreen
-                container.classList.add('slider-fullscreen-mode');
-                if(btnText) btnText.innerText = 'Close ✕';
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            }
-            
-            // Recalculate slider image widths after class toggle
-            setTimeout(resizeAllImages, 50);
         }
 
         // =========================================================================
