@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Architectural Visualization | Portfolio</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
-    <!-- Pannellum CSS for 360° Panoramas -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
     
     <style>
@@ -70,28 +67,10 @@
             cursor: ew-resize;
             background: transparent;
         }
-
-        /* Custom Fullscreen Class (Bypasses iframe restrictions) */
-        .slider-fullscreen-mode {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100vw !important;
-            height: 100vh !important;
-            max-width: none !important;
-            z-index: 150 !important;
-            border-radius: 0 !important;
-            background-color: #000 !important;
-            margin: 0 !important;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
     </style>
 </head>
 <body class="antialiased text-gray-200">
 
-    <!-- GLOBAL LIGHTBOX (For standard images) -->
     <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
         <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/50 hover:text-white transition z-50 text-3xl">✕</button>
         <button onclick="prevImage(event)" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all z-50">
@@ -103,7 +82,6 @@
         </button>
     </div>
 
-    <!-- 360 PANORAMA LIGHTBOX -->
     <div id="pano-lightbox" class="fixed inset-0 z-[120] bg-black hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
         <button onclick="closePanorama()" class="absolute top-6 right-6 text-white/70 hover:text-white transition z-50 flex items-center gap-2 bg-black/40 hover:bg-black/60 px-5 py-2.5 rounded-lg backdrop-blur-md border border-white/10">
             <span class="uppercase tracking-widest text-sm font-medium">Close</span>
@@ -112,7 +90,6 @@
         <div id="panorama-container" class="w-full h-full"></div>
     </div>
 
-    <!-- REQUEST A QUOTE MODAL -->
     <div id="quote-modal" class="fixed inset-0 z-[110] bg-black/80 backdrop-blur-sm hidden flex items-center justify-center opacity-0 transition-opacity duration-300 px-4">
         <div class="bg-[#111111] border border-white/10 p-8 md:p-10 rounded-xl w-full max-w-lg relative transform scale-95 transition-transform duration-300 shadow-2xl" id="quote-modal-content">
             <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-gray-500 hover:text-white transition">✕</button>
@@ -134,7 +111,6 @@
         </div>
     </div>
 
-    <!-- NAVIGATION -->
     <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
         <div class="max-w-[1400px] mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
             <a href="#why-us" class="text-xl font-light tracking-widest uppercase mb-4 md:mb-0 hover:text-gray-300 transition">
@@ -149,10 +125,8 @@
         </div>
     </nav>
 
-    <!-- MAIN CONTENT -->
     <main id="main-content" class="pt-24 md:pt-20">
 
-        <!-- 1. WHY US SECTION -->
         <section id="why-us" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-5xl mx-auto flex flex-col justify-center gap-20">
             
             <div class="fade-up flex flex-col md:flex-row gap-8 md:gap-12 items-start">
@@ -203,7 +177,6 @@
             
         </section>
 
-        <!-- 2. PORTFOLIO HUB -->
         <section id="home" class="page-section px-4 md:px-6 pb-12 min-h-[calc(100vh-80px)] flex flex-col items-center justify-center max-w-[1600px] mx-auto pt-6">
             <div class="text-center w-full mb-10 fade-up">
                 <h1 class="text-3xl md:text-4xl font-light tracking-widest uppercase">Portfolio</h1>
@@ -238,7 +211,6 @@
             </div>
         </section>
 
-        <!-- 3. STILL RENDERS (6 PROJECT COVERS) -->
         <section id="renders" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
@@ -248,7 +220,6 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10">
                 <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-1'">
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
-                        <!-- REPLACE URL -->
                         <img src="https://picsum.photos/seed/rc_1/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project 1">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                             <span class="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded backdrop-blur-sm bg-black/30">View Project</span>
@@ -262,7 +233,6 @@
 
                 <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-2'">
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
-                        <!-- REPLACE URL -->
                         <img src="https://picsum.photos/seed/rc_2/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project 2">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                             <span class="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded backdrop-blur-sm bg-black/30">View Project</span>
@@ -276,7 +246,6 @@
 
                 <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-3'">
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
-                        <!-- REPLACE URL -->
                         <img src="https://picsum.photos/seed/rc_3/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project 3">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                             <span class="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded backdrop-blur-sm bg-black/30">View Project</span>
@@ -290,7 +259,6 @@
 
                 <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-4'">
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
-                        <!-- REPLACE URL -->
                         <img src="https://picsum.photos/seed/rc_4/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project 4">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                             <span class="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded backdrop-blur-sm bg-black/30">View Project</span>
@@ -304,7 +272,6 @@
 
                 <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-5'">
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
-                        <!-- REPLACE URL -->
                         <img src="https://picsum.photos/seed/rc_5/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project 5">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                             <span class="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded backdrop-blur-sm bg-black/30">View Project</span>
@@ -318,7 +285,6 @@
 
                 <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-6'">
                     <div class="overflow-hidden rounded-xl bg-gray-900 aspect-[16/9] w-full relative">
-                        <!-- REPLACE URL -->
                         <img src="https://picsum.photos/seed/rc_6/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 group-hover:opacity-60" alt="Project 6">
                         <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
                             <span class="text-white text-xs tracking-widest uppercase border border-white/50 px-4 py-2 rounded backdrop-blur-sm bg-black/30">View Project</span>
@@ -332,7 +298,6 @@
             </div>
         </section>
 
-        <!-- 4. PROJECT GALLERY -->
         <section id="project-view" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center justify-between mb-12 border-b border-gray-800 pb-4">
                 <div class="flex items-center gap-4">
@@ -345,11 +310,9 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="project-images-grid">
-                <!-- Images dynamically injected via JS -->
-            </div>
+                </div>
         </section>
 
-        <!-- 5. ANIMATION & AI -->
         <section id="video" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
@@ -359,14 +322,12 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
                 <div class="flex flex-col">
                     <div class="relative w-full aspect-[16/9] bg-gray-900 rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onclick="playYouTubeVideo(this)">
-                        <!-- REPLACE URL -->
                         <img src="https://picsum.photos/seed/anim_vid_1/1280/720" class="video-thumb absolute inset-0 w-full h-full object-cover transition duration-700 opacity-70 group-hover:opacity-40" alt="Video Preview 1">
                         <div class="play-btn absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10">
                             <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 group-hover:scale-110 transition duration-300">
                                 <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6z"/></svg>
                             </div>
                         </div>
-                        <!-- REPLACE ID -->
                         <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
@@ -457,7 +418,6 @@
             </div>
         </section>
 
-        <!-- 6. BEFORE & AFTER (5 SLIDERS WITH CSS FULLSCREEN) -->
         <section id="before-after" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
@@ -465,15 +425,12 @@
             </div>
             
             <div class="flex flex-col gap-16">
-                <!-- Slider 1 -->
                 <div class="flex flex-col gap-4">
                     <div id="slider-block-1" class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
-                        <!-- REPLACE URL: AFTER -->
                         <img src="https://picsum.photos/seed/ba_1_after/1280/720" class="absolute inset-0 w-full h-full object-cover" alt="After">
                         <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">After</span>
                         
                         <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
-                            <!-- REPLACE URL: BEFORE -->
                             <img src="https://picsum.photos/seed/ba_1_before/1280/720" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
                             <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">Before</span>
                         </div>
@@ -483,11 +440,6 @@
                         </div>
                         
                         <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                        
-                        <!-- Expand Button (Uses CSS pseudo-fullscreen) -->
-                        <button onclick="toggleSliderFullscreen('slider-block-1')" class="absolute bottom-6 right-6 z-50 bg-black/70 hover:bg-black border border-white/20 hover:border-white transition-all text-white text-xs uppercase px-4 py-2.5 rounded-lg flex items-center gap-2">
-                            <span class="fullscreen-btn-text">Expand ⛶</span>
-                        </button>
                     </div>
                     <div class="px-1 flex justify-between items-center">
                         <div>
@@ -497,7 +449,6 @@
                     </div>
                 </div>
 
-                <!-- Slider 2 -->
                 <div class="flex flex-col gap-4">
                     <div id="slider-block-2" class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://picsum.photos/seed/ba_2_after/1280/720" class="absolute inset-0 w-full h-full object-cover" alt="After">
@@ -513,10 +464,6 @@
                         </div>
                         
                         <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                        
-                        <button onclick="toggleSliderFullscreen('slider-block-2')" class="absolute bottom-6 right-6 z-50 bg-black/70 hover:bg-black border border-white/20 hover:border-white transition-all text-white text-xs uppercase px-4 py-2.5 rounded-lg flex items-center gap-2">
-                            <span class="fullscreen-btn-text">Expand ⛶</span>
-                        </button>
                     </div>
                     <div class="px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Deep Twilight Mood</h3>
@@ -524,7 +471,6 @@
                     </div>
                 </div>
 
-                <!-- Slider 3 -->
                 <div class="flex flex-col gap-4">
                     <div id="slider-block-3" class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://picsum.photos/seed/ba_3_after/1280/720" class="absolute inset-0 w-full h-full object-cover" alt="After">
@@ -540,10 +486,6 @@
                         </div>
                         
                         <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                        
-                        <button onclick="toggleSliderFullscreen('slider-block-3')" class="absolute bottom-6 right-6 z-50 bg-black/70 hover:bg-black border border-white/20 hover:border-white transition-all text-white text-xs uppercase px-4 py-2.5 rounded-lg flex items-center gap-2">
-                            <span class="fullscreen-btn-text">Expand ⛶</span>
-                        </button>
                     </div>
                     <div class="px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Geometry & Texture Correction</h3>
@@ -551,7 +493,6 @@
                     </div>
                 </div>
 
-                <!-- Slider 4 -->
                 <div class="flex flex-col gap-4">
                     <div id="slider-block-4" class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://picsum.photos/seed/ba_4_after/1280/720" class="absolute inset-0 w-full h-full object-cover" alt="After">
@@ -567,10 +508,6 @@
                         </div>
                         
                         <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                        
-                        <button onclick="toggleSliderFullscreen('slider-block-4')" class="absolute bottom-6 right-6 z-50 bg-black/70 hover:bg-black border border-white/20 hover:border-white transition-all text-white text-xs uppercase px-4 py-2.5 rounded-lg flex items-center gap-2">
-                            <span class="fullscreen-btn-text">Expand ⛶</span>
-                        </button>
                     </div>
                     <div class="px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Atmosphere Setup</h3>
@@ -578,7 +515,6 @@
                     </div>
                 </div>
 
-                <!-- Slider 5 -->
                 <div class="flex flex-col gap-4">
                     <div id="slider-block-5" class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
                         <img src="https://picsum.photos/seed/ba_5_after/1280/720" class="absolute inset-0 w-full h-full object-cover" alt="After">
@@ -594,10 +530,6 @@
                         </div>
                         
                         <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                        
-                        <button onclick="toggleSliderFullscreen('slider-block-5')" class="absolute bottom-6 right-6 z-50 bg-black/70 hover:bg-black border border-white/20 hover:border-white transition-all text-white text-xs uppercase px-4 py-2.5 rounded-lg flex items-center gap-2">
-                            <span class="fullscreen-btn-text">Expand ⛶</span>
-                        </button>
                     </div>
                     <div class="px-1">
                         <h3 class="text-white text-sm font-medium tracking-widest uppercase">Final Color Grading</h3>
@@ -607,7 +539,6 @@
             </div>
         </section>
 
-        <!-- 7. 360 PANORAMAS -->
         <section id="panoramas" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
              <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
@@ -615,7 +546,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Panorama 1 -->
                 <div class="flex flex-col group">
                     <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer" onclick="openPanorama('https://picsum.photos/seed/pano_full_1/4000/2000')">
                         <img src="https://picsum.photos/seed/pano_thumb_1/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="360 Panorama 1">
@@ -631,7 +561,6 @@
                     </div>
                 </div>
 
-                <!-- Panorama 2 -->
                 <div class="flex flex-col group">
                     <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer" onclick="openPanorama('https://picsum.photos/seed/pano_full_2/4000/2000')">
                         <img src="https://picsum.photos/seed/pano_thumb_2/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="360 Panorama 2">
@@ -647,7 +576,6 @@
                     </div>
                 </div>
 
-                <!-- Panorama 3 -->
                 <div class="flex flex-col group">
                     <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer" onclick="openPanorama('https://picsum.photos/seed/pano_full_3/4000/2000')">
                         <img src="https://picsum.photos/seed/pano_thumb_3/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="360 Panorama 3">
@@ -663,7 +591,6 @@
                     </div>
                 </div>
 
-                <!-- Panorama 4 -->
                 <div class="flex flex-col group">
                     <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer" onclick="openPanorama('https://picsum.photos/seed/pano_full_4/4000/2000')">
                         <img src="https://picsum.photos/seed/pano_thumb_4/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="360 Panorama 4">
@@ -679,7 +606,6 @@
                     </div>
                 </div>
 
-                <!-- Panorama 5 -->
                 <div class="flex flex-col group">
                     <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer" onclick="openPanorama('https://picsum.photos/seed/pano_full_5/4000/2000')">
                         <img src="https://picsum.photos/seed/pano_thumb_5/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="360 Panorama 5">
@@ -695,7 +621,6 @@
                     </div>
                 </div>
 
-                <!-- Panorama 6 -->
                 <div class="flex flex-col group">
                     <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-xl bg-gray-900 portfolio-card cursor-pointer" onclick="openPanorama('https://picsum.photos/seed/pano_full_6/4000/2000')">
                         <img src="https://picsum.photos/seed/pano_thumb_6/800/450" class="w-full h-full object-cover transition duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" alt="360 Panorama 6">
@@ -713,7 +638,6 @@
             </div>
         </section>
 
-        <!-- 8. GOOGLE REVIEWS SECTION -->
         <section id="reviews" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <h2 class="text-3xl font-light mb-12 uppercase tracking-widest border-b border-gray-800 pb-4">Google <span class="font-medium">Reviews</span></h2>
             
@@ -736,46 +660,39 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-up delay-200">
-                <!-- Review 1 -->
                 <div class="bg-gray-900/30 p-8 rounded-xl border border-white/5 hover:bg-gray-900/60 transition">
                     <div class="flex gap-1 mb-5" id="stars-slot-1"></div>
                     <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"Outstanding precision and creativity. Their visualization helped us win the bid for a major NYC project."</p>
-                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— James Miller, Architect (USA)</span>
+                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— James Miller, Architect</span>
                 </div>
-                <!-- Review 2 -->
                 <div class="bg-gray-900/30 p-8 rounded-xl border border-white/5 hover:bg-gray-900/60 transition">
                     <div class="flex gap-1 mb-5" id="stars-slot-2"></div>
                     <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"A truly reliable partner. The attention to material details and lighting in European architecture is unmatched."</p>
-                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Hans Schmidt, Lead Designer (Germany)</span>
+                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Hans Schmidt, Lead Designer</span>
                 </div>
-                <!-- Review 3 -->
                 <div class="bg-gray-900/30 p-8 rounded-xl border border-white/5 hover:bg-gray-900/60 transition">
                     <div class="flex gap-1 mb-5" id="stars-slot-3"></div>
                     <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"Stunning aesthetic storytelling. They don't just render; they capture the soul of the building."</p>
-                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Sophia Laurent, Interior Designer (France)</span>
+                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Sophia Laurent, Interior Designer</span>
                 </div>
-                <!-- Review 4 -->
                 <div class="bg-gray-900/30 p-8 rounded-xl border border-white/5 hover:bg-gray-900/60 transition">
                     <div class="flex gap-1 mb-5" id="stars-slot-4"></div>
                     <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"Fast turnaround and exceptional quality. Exactly what our design team needed to meet our tight deadlines."</p>
-                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Ethan O'Connor, Developer (Canada)</span>
+                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Ethan O'Connor, Developer</span>
                 </div>
-                <!-- Review 5 -->
                 <div class="bg-gray-900/30 p-8 rounded-xl border border-white/5 hover:bg-gray-900/60 transition">
                     <div class="flex gap-1 mb-5" id="stars-slot-5"></div>
                     <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"The AI-enhanced production is a game changer. Exceptional workflow and professional communication."</p>
-                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Robert Wilson, Developer (UK)</span>
+                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Robert Wilson, Developer</span>
                 </div>
-                <!-- Review 6 -->
                 <div class="bg-gray-900/30 p-8 rounded-xl border border-white/5 hover:bg-gray-900/60 transition">
                     <div class="flex gap-1 mb-5" id="stars-slot-6"></div>
                     <p class="text-gray-300 font-light mb-6 text-sm leading-relaxed italic">"I've worked with many studios, but their artistic approach to lighting is on another level."</p>
-                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Carlos Martinez, Architect (Spain)</span>
+                    <span class="text-xs uppercase tracking-widest font-medium text-gray-500">— Carlos Martinez, Architect</span>
                 </div>
             </div>
         </section>
 
-        <!-- 9. CONTACT SECTION -->
         <section id="contacts" class="page-section min-h-[70vh] flex items-center justify-center pt-24 px-6">
             <div class="max-w-2xl text-center">
                 <h2 class="text-4xl font-light mb-8 uppercase tracking-widest">Let's Work <span class="font-medium">Together</span></h2>
@@ -784,7 +701,6 @@
                     <button onclick="openQuoteModal()" class="px-10 py-4 bg-white text-black font-medium hover:bg-gray-300 transition min-w-[220px] rounded uppercase tracking-wider text-sm shadow-xl">
                         Email Us
                     </button>
-                    <!-- WhatsApp -->
                     <a href="https://wa.me/13057101488" target="_blank" rel="noopener noreferrer" class="px-10 py-4 border border-white/50 hover:border-white transition min-w-[220px] rounded uppercase tracking-wider text-sm flex justify-center items-center gap-2">
                         WhatsApp
                     </a>
@@ -794,7 +710,6 @@
 
     </main>
 
-    <!-- Pannellum JS Script -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 
     <script>
@@ -961,29 +876,6 @@
                     beforeImage.style.width = wrapper.offsetWidth + 'px';
                 }
             });
-        }
-
-        // Toggles a CSS-based pseudo-fullscreen to bypass iframe restrictions
-        function toggleSliderFullscreen(containerId) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-
-            const btnText = container.querySelector('.fullscreen-btn-text');
-            
-            if (container.classList.contains('slider-fullscreen-mode')) {
-                // Exit pseudo-fullscreen
-                container.classList.remove('slider-fullscreen-mode');
-                if(btnText) btnText.innerText = 'Expand ⛶';
-                document.body.style.overflow = ''; // Restore scrolling
-            } else {
-                // Enter pseudo-fullscreen
-                container.classList.add('slider-fullscreen-mode');
-                if(btnText) btnText.innerText = 'Close ✕';
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            }
-            
-            // Recalculate slider image widths after class toggle
-            setTimeout(resizeAllImages, 50);
         }
 
         // =========================================================================
