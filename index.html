@@ -307,7 +307,7 @@
                         <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/G-lFuq2a8S0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
-                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Large-scale Exterior</h3>
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Blackhawk Crossing Exterior (+AI)</h3>
                         <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">Architectural flythrough. Presentation of the residential community project.</p>
                     </div>
                 </div>
@@ -323,7 +323,7 @@
                         <iframe class="hidden absolute inset-0 w-full h-full" data-src="https://www.youtube.com/embed/VIDEO_ID_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 px-1">
-                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">AI Animation</h3>
+                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Blackhawk Crossing Interior (+AI)</h3>
                         <p class="text-gray-400 text-xs mt-2 font-light leading-relaxed">AI-driven animation of a static render. Creating seamless transitions and fluid camera movements.</p>
                     </div>
                 </div>
@@ -607,8 +607,11 @@
         let rendersHTML = '';
         for(let i = 1; i <= 6; i++) {
             let img = `https://picsum.photos/seed/render_cover_${i}/1920/1080`;
+if (i === 1) {
+    img = "assets/project1_thumb_1.jpg"; // Путь к ВАШЕЙ обложке для Проекта 1
+}
             let desc = i % 2 === 0 
-                ? "Photorealistic exterior. Lighting setup to create a deep twilight blue hour atmosphere."
+                ? "Photorealistic Interior. Demonstration of an interior finish option."
                 : "Detailed elaboration of materials and textures. Precise lighting control for maximum realism.";
             
             rendersHTML += `
