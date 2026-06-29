@@ -20,17 +20,14 @@
     </style>
 </head>
 <body class="antialiased">
-
     <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
         <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl z-50">✕</button>
         <img id="lightbox-img" src="" class="max-h-[90vh] max-w-[90vw] object-contain">
     </div>
-
     <div id="pano-lightbox" class="fixed inset-0 z-[120] bg-black hidden opacity-0 transition-opacity duration-300">
-        <button onclick="closePanorama()" class="absolute top-6 right-6 z-50 bg-black/50 px-6 py-3 rounded border border-white/20 uppercase text-xs tracking-widest">Cancel</button>
+        <button onclick="closePanorama()" class="absolute top-6 right-6 z-50 bg-black/50 px-6 py-3 rounded border border-white/20 uppercase text-xs tracking-widest">Cancel ✕</button>
         <div id="panorama-container" class="w-full h-full"></div>
     </div>
-
     <div id="quote-modal" class="fixed inset-0 z-[110] bg-black/80 backdrop-blur-sm hidden flex items-center justify-center px-4 opacity-0 transition-opacity duration-300">
         <div class="bg-[#111111] border border-white/10 p-10 rounded-xl w-full max-w-lg relative shadow-2xl">
             <button onclick="closeQuoteModal()" class="absolute top-5 right-5 text-white">✕</button>
@@ -43,7 +40,6 @@
             </form>
         </div>
     </div>
-
     <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
         <div class="max-w-[1400px] mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#why-us" class="text-xl tracking-widest uppercase">Vis.Studio</a>
@@ -56,13 +52,11 @@
         </div>
     </nav>
     <main id="main-content" class="pt-24 md:pt-20">
-        
         <section id="why-us" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-5xl mx-auto flex flex-col justify-center gap-16">
             <div class="fade-up"><h2 class="text-4xl font-light uppercase tracking-widest mb-6">Who We <span class="font-medium">Are</span></h2><p class="text-gray-400 text-lg">We are a premier architectural visualization studio that serves as a seamless extension of your design team.</p></div>
             <div class="fade-up delay-100"><h2 class="text-4xl font-light uppercase tracking-widest mb-6">What We <span class="font-medium">Do</span></h2><p class="text-gray-400 text-lg">Photorealistic Stills, Cinematic Animation, AI-Enhanced Production, Photomontage.</p></div>
             <div class="fade-up delay-200"><h2 class="text-4xl font-light uppercase tracking-widest mb-6">Why Choose <span class="font-medium">Us</span></h2><p class="text-gray-400 text-lg">Reliability, Technical Excellence, Strategic Partnership.</p></div>
         </section>
-
         <section id="home" class="page-section min-h-screen pt-20 px-4 flex flex-col items-center justify-center">
             <div class="w-[90%] max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div onclick="window.location.hash='renders'" class="cursor-pointer bg-gray-900 aspect-[16/9] rounded-xl overflow-hidden relative group"><img src="https://picsum.photos/seed/h1/1920/1080" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"></div>
@@ -71,7 +65,6 @@
                 <div onclick="window.location.hash='panoramas'" class="cursor-pointer bg-gray-900 aspect-[16/9] rounded-xl overflow-hidden relative group"><img src="https://picsum.photos/seed/h4/1920/1080" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"></div>
             </div>
         </section>
-
         <section id="renders" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
             <button onclick="window.location.hash='home'" class="text-gray-500 mb-8">← Back</button>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10" id="renders-container"></div>
@@ -99,83 +92,107 @@
         </section>
 
         <section id="reviews" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
+            <h2 class="text-3xl uppercase tracking-widest mb-10">Google Reviews</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="reviews-container"></div>
         </section>
 
-        <section id="contacts" class="page-section min-h-[70vh] flex items-center justify-center">
+        <section id="contacts" class="page-section min-h-[70vh] flex items-center justify-center pt-24 px-6">
             <div class="text-center">
                 <button onclick="openQuoteModal()" class="px-10 py-4 bg-white text-black uppercase tracking-widest text-sm mb-6">Email Us</button>
-                <a href="https://wa.me/13057101488" class="block text-gray-400">WhatsApp +1 (305) 710-1488</a>
+                <a href="https://wa.me/13057101488" class="block text-gray-400 text-sm tracking-widest uppercase">WhatsApp +1 (305) 710-1488</a>
             </div>
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <script>
-        // ДАННЫЕ ПРОЕКТОВ (Здесь ваши 6 проектов, по 6 картинок в каждом)
-        const projectGalleries = {
-            1: ["https://picsum.photos/seed/p1_1/1920/1080", "https://picsum.photos/seed/p1_2/1920/1080", "https://picsum.photos/seed/p1_3/1920/1080", "https://picsum.photos/seed/p1_4/1920/1080", "https://picsum.photos/seed/p1_5/1920/1080", "https://picsum.photos/seed/p1_6/1920/1080"],
-            2: ["https://picsum.photos/seed/p2_1/1920/1080", "https://picsum.photos/seed/p2_2/1920/1080", "https://picsum.photos/seed/p2_3/1920/1080", "https://picsum.photos/seed/p2_4/1920/1080", "https://picsum.photos/seed/p2_5/1920/1080", "https://picsum.photos/seed/p2_6/1920/1080"],
-            3: ["https://picsum.photos/seed/p3_1/1920/1080", "https://picsum.photos/seed/p3_2/1920/1080", "https://picsum.photos/seed/p3_3/1920/1080", "https://picsum.photos/seed/p3_4/1920/1080", "https://picsum.photos/seed/p3_5/1920/1080", "https://picsum.photos/seed/p3_6/1920/1080"],
-            4: ["https://picsum.photos/seed/p4_1/1920/1080", "https://picsum.photos/seed/p4_2/1920/1080", "https://picsum.photos/seed/p4_3/1920/1080", "https://picsum.photos/seed/p4_4/1920/1080", "https://picsum.photos/seed/p4_5/1920/1080", "https://picsum.photos/seed/p4_6/1920/1080"],
-            5: ["https://picsum.photos/seed/p5_1/1920/1080", "https://picsum.photos/seed/p5_2/1920/1080", "https://picsum.photos/seed/p5_3/1920/1080", "https://picsum.photos/seed/p5_4/1920/1080", "https://picsum.photos/seed/p5_5/1920/1080", "https://picsum.photos/seed/p5_6/1920/1080"],
-            6: ["https://picsum.photos/seed/p6_1/1920/1080", "https://picsum.photos/seed/p6_2/1920/1080", "https://picsum.photos/seed/p6_3/1920/1080", "https://picsum.photos/seed/p6_4/1920/1080", "https://picsum.photos/seed/p6_5/1920/1080", "https://picsum.photos/seed/p6_6/1920/1080"]
-        };
-
-        // RENDER CARDS GENERATOR
-        const rendersContainer = document.getElementById('renders-container');
-        for(let i=1; i<=6; i++) {
-            rendersContainer.innerHTML += `
-                <div class="group flex flex-col cursor-pointer" onclick="window.location.hash='project-view-${i}'">
-                    <div class="rounded-xl overflow-hidden aspect-[16/9] relative bg-gray-900">
-                        <img src="https://picsum.photos/seed/cover_${i}/1920/1080" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                    </div>
-                    <h3 class="mt-4 uppercase tracking-widest text-sm font-medium">Project ${i}</h3>
-                </div>`;
-        }
-
-        // PANO LOGIC
-        function openPanorama(url) {
-            const container = document.getElementById('pano-lightbox');
-            container.classList.remove('hidden');
-            setTimeout(() => {
-                container.classList.remove('opacity-0');
-                pannellum.viewer('panorama-container', { "type": "equirectangular", "panorama": url, "autoLoad": true, "showControls": false, "keyboardZoom": true, "mouseZoom": true });
-            }, 50);
-        }
-        function closePanorama() {
-            document.getElementById('pano-lightbox').classList.add('opacity-0');
-            setTimeout(() => { document.getElementById('pano-lightbox').classList.add('hidden'); document.getElementById('panorama-container').innerHTML = ''; }, 300);
-        }
-
-        // ROUTING
-        function handleRouting() {
-            let hash = window.location.hash.substring(1) || 'why-us';
-            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
-            
-            if (hash.startsWith('project-view-')) {
-                let id = hash.split('-')[2];
-                document.getElementById('project-title').innerText = 'Project ' + id;
-                const grid = document.getElementById('project-images-grid');
-                grid.innerHTML = projectGalleries[id].map(u => `<img src="${u}" class="w-full aspect-[16/9] object-cover rounded-xl lightbox-trigger cursor-pointer">`).join('');
-                document.getElementById('project-view').classList.add('active');
-            } else {
-                document.getElementById(hash)?.classList.add('active');
-            }
-            window.scrollTo(0,0);
-        }
-        window.addEventListener('hashchange', handleRouting);
+        // 1. ПРИНУДИТЕЛЬНОЕ УБРАНИЕ ОПАКИТИ (F5 Fix)
         window.addEventListener('DOMContentLoaded', () => {
             handleRouting();
             document.getElementById('main-content').style.opacity = '1';
         });
 
-        // UTILS (Lightbox & Quote)
-        function openLightbox(src) { document.getElementById('lightbox-img').src = src; document.getElementById('lightbox').classList.remove('hidden'); setTimeout(()=>document.getElementById('lightbox').classList.remove('opacity-0'), 10); }
-        function closeLightbox() { document.getElementById('lightbox').classList.add('opacity-0'); setTimeout(()=>document.getElementById('lightbox').classList.add('hidden'), 300); }
-        document.addEventListener('click', e => { if(e.target.classList.contains('lightbox-trigger')) openLightbox(e.target.src); });
-        function openQuoteModal() { document.getElementById('quote-modal').classList.remove('hidden'); setTimeout(()=>document.getElementById('quote-modal').classList.remove('opacity-0'), 10); }
+        // 2. ДАННЫЕ ПРОЕКТОВ (Still Renders - 36 уникальных ссылок)
+        const projectGalleries = {
+            1: Array.from({length: 6}, (_,i) => `https://picsum.photos/seed/p1_i${i}/1920/1080`),
+            2: Array.from({length: 6}, (_,i) => `https://picsum.photos/seed/p2_i${i}/1920/1080`),
+            3: Array.from({length: 6}, (_,i) => `https://picsum.photos/seed/p3_i${i}/1920/1080`),
+            4: Array.from({length: 6}, (_,i) => `https://picsum.photos/seed/p4_i${i}/1920/1080`),
+            5: Array.from({length: 6}, (_,i) => `https://picsum.photos/seed/p5_i${i}/1920/1080`),
+            6: Array.from({length: 6}, (_,i) => `https://picsum.photos/seed/p6_i${i}/1920/1080`)
+        };
+
+        // RENDERS GRID
+        const rendersContainer = document.getElementById('renders-container');
+        for(let i=1; i<=6; i++) {
+            rendersContainer.innerHTML += `
+                <div class="group cursor-pointer" onclick="window.location.hash='project-view-${i}'">
+                    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-gray-900"><img src="https://picsum.photos/seed/cover_${i}/1920/1080" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"></div>
+                    <h3 class="mt-4 uppercase tracking-widest text-sm">Project 0${i}</h3>
+                </div>`;
+        }
+
+        // PANORAMAS GRID
+        const panoGrid = document.getElementById('panoramas-grid');
+        for(let i=1; i<=6; i++) {
+            panoGrid.innerHTML += `
+                <div class="cursor-pointer group" onclick="openPanorama('https://picsum.photos/seed/pano_${i}/4000/2000')">
+                    <div class="aspect-[16/9] rounded-xl overflow-hidden bg-gray-900"><img src="https://picsum.photos/seed/thumb_${i}/1920/1080" class="w-full h-full object-cover"></div>
+                    <h3 class="mt-4 uppercase tracking-widest text-sm">Panorama 0${i}</h3>
+                </div>`;
+        }
+
+        // REVIEWS
+        const reviews = [
+            {t: "Excellent work! Renders exceeded expectations.", a: "Alex, USA"},
+            {t: "Reliable partner, high attention to detail.", a: "Maria, Germany"},
+            {t: "Stunning aesthetic storytelling.", a: "Sophia, France"},
+            {t: "Fast turnaround and high quality.", a: "Ethan, Canada"},
+            {t: "AI-enhanced production is a game changer.", a: "Robert, UK"},
+            {t: "Artistic approach to lighting is top-tier.", a: "Carlos, Spain"},
+            {t: "Breathtaking animation work.", a: "Emily, USA"}
+        ];
+        document.getElementById('reviews-container').innerHTML = reviews.map(r => `
+            <div class="bg-gray-900/40 p-8 rounded-xl border border-white/5">
+                <p class="mb-4 italic">"${r.t}"</p><span class="text-xs uppercase text-gray-500">— ${r.a}</span>
+            </div>`).join('');
+
+        // ROUTING
+        function handleRouting() {
+            let hash = window.location.hash.substring(1) || 'why-us';
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+            if (hash.startsWith('project-view-')) {
+                let id = hash.split('-')[2];
+                document.getElementById('project-title').innerText = 'Project 0' + id;
+                document.getElementById('project-images-grid').innerHTML = projectGalleries[id].map(u => `<img src="${u}" class="w-full aspect-[16/9] object-cover rounded-xl lightbox-trigger">`).join('');
+                document.getElementById('project-view').classList.add('active');
+            } else {
+                document.getElementById(hash)?.classList.add('active');
+            }
+        }
+        window.addEventListener('hashchange', handleRouting);
+
+        // MODAL & VIDEO LOGIC
+        function openQuoteModal() { document.getElementById('quote-modal').classList.remove('hidden'); setTimeout(()=>document.getElementById('quote-modal').classList.add('opacity-100'), 10); }
         function closeQuoteModal() { document.getElementById('quote-modal').classList.add('opacity-0'); setTimeout(()=>document.getElementById('quote-modal').classList.add('hidden'), 300); }
-        function playYouTubeVideo(c) { c.querySelector('img').classList.add('hidden'); c.querySelector('.play-btn').classList.add('hidden'); c.querySelector('iframe').classList.remove('hidden'); let s = c.querySelector('iframe').getAttribute('data-src'); c.querySelector('iframe').setAttribute('src', s + '&autoplay=1'); }
+        function playYouTubeVideo(c) { c.querySelector('img').classList.add('hidden'); c.querySelector('.play-btn').classList.add('hidden'); c.querySelector('iframe').classList.remove('hidden'); c.querySelector('iframe').src = c.querySelector('iframe').getAttribute('data-src') + '&autoplay=1'; }
+        
+        // PANO
+        function openPanorama(url) {
+            document.getElementById('pano-lightbox').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('pano-lightbox').classList.add('opacity-100');
+                pannellum.viewer('panorama-container', { "type": "equirectangular", "panorama": url, "autoLoad": true, "showControls": false });
+            }, 50);
+        }
+        function closePanorama() {
+            document.getElementById('pano-lightbox').classList.remove('opacity-100');
+            setTimeout(() => { document.getElementById('pano-lightbox').classList.add('hidden'); document.getElementById('panorama-container').innerHTML = ''; }, 300);
+        }
+
+        // LIGHTBOX
+        function openLightbox(src) { document.getElementById('lightbox-img').src = src; document.getElementById('lightbox').classList.remove('hidden'); setTimeout(()=>document.getElementById('lightbox').classList.add('opacity-100'), 10); }
+        function closeLightbox() { document.getElementById('lightbox').classList.remove('opacity-100'); setTimeout(()=>document.getElementById('lightbox').classList.add('hidden'), 300); }
+        document.addEventListener('click', e => { if(e.target.classList.contains('lightbox-trigger')) openLightbox(e.target.src); });
     </script>
 </body>
 </html>
