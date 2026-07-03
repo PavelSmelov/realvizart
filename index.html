@@ -441,127 +441,11 @@
         </section>
 
         <!-- 6. BEFORE & AFTER (5 SLIDERS WITH CSS FULLSCREEN) -->
-        <section id="before-after" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
-            <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
-                <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
-                <h2 class="text-3xl font-light uppercase tracking-widest">Before & <span class="font-medium">After</span></h2>
-            </div>
-            
-            <div class="flex flex-col gap-16">
-                <div class="flex flex-col gap-4">
-                    <div id="slider-block-1" class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
-                        <img src="assets/compare_1_1.jpg" class="absolute inset-0 w-full h-full object-cover" alt="After">
-                        <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">After</span>
-                        
-                        <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
-                            <img src="assets/compare_1_2.jpg" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
-                            <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">Before</span>
-                        </div>
-                        
-                        <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
-                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] border-2 border-gray-200"><svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg></div>
-                        </div>
-                        
-                        <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                    </div>
-                    <div class="px-1 flex justify-between items-center">
-                        <div>
-                            <h3 class="text-white text-sm font-medium tracking-widest uppercase">Winter-Summer</h3>
-                            <p class="text-gray-400 text-xs mt-1 font-light leading-relaxed">With a single movement of the slider, you can change the season in your project..</p>
-                        </div>
-                    </div>
-                </div>
+      Готово! Я аккуратно обернул 5-ю и 6-ю панорамы в теги комментариев ``. Первые 4 панорамы останутся на месте и будут работать как обычно.
 
-                <div class="flex flex-col gap-4">
-                    <div id="slider-block-2" class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
-                        <img src="assets/compare_2_1.jpg" class="absolute inset-0 w-full h-full object-cover" alt="After">
-                        <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">After</span>
-                        
-                        <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
-                            <img src="assets/compare_2_2.jpg" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
-                            <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">Before</span>
-                        </div>
-                        
-                        <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
-                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] border-2 border-gray-200"><svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg></div>
-                        </div>
-                        
-                        <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                    </div>
-                    <div class="px-1">
-                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">From Dusk Till Dawn</h3>
-                        <p class="text-gray-400 text-xs mt-1 font-light leading-relaxed">It’s always interesting to see how your project will look at different times of day.</p>
-                    </div>
-                </div>
+Просто скопируйте весь этот код и замените им ваш текущий блок в редакторе:
 
-                <div class="flex flex-col gap-4">
-                    <div id="slider-block-3" class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
-                        <img src="assets/compare_3_1.jpg" class="absolute inset-0 w-full h-full object-cover" alt="After">
-                        <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">After</span>
-                        
-                        <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
-                            <img src="assets/compare_3_2.jpg" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
-                            <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">Before</span>
-                        </div>
-                        
-                        <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
-                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] border-2 border-gray-200"><svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg></div>
-                        </div>
-                        
-                        <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                    </div>
-                    <div class="px-1">
-                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Inserting a 3D object into a live photo</h3>
-                        <p class="text-gray-400 text-xs mt-1 font-light leading-relaxed">Shadows and lighting will be adjusted so that the 3D object is perceived as an integral part of the overall image.</p>
-                    </div>
-                </div>
-
-                <div class="flex flex-col gap-4">
-                    <div id="slider-block-4" class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
-                        <img src="assets/compare_4_1.jpg" class="absolute inset-0 w-full h-full object-cover" alt="After">
-                        <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">After</span>
-                        
-                        <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
-                            <img src="assets/compare_4_2.jpg" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
-                            <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">Before</span>
-                        </div>
-                        
-                        <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
-                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] border-2 border-gray-200"><svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg></div>
-                        </div>
-                        
-                        <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                    </div>
-                    <div class="px-1">
-                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Day-Evening Interior</h3>
-                        <p class="text-gray-400 text-xs mt-1 font-light leading-relaxed">Your interior looks different by day and by night, yet always attractive.</p>
-                    </div>
-                </div>
-
-                <div class="flex flex-col gap-4">
-                    <div id="slider-block-5" class="comparison-slider-wrapper relative w-full aspect-[16/9] rounded-xl overflow-hidden select-none shadow-2xl bg-gray-900 z-0">
-                        <img src="assets/compare_5_2.jpg" class="absolute inset-0 w-full h-full object-cover" alt="After">
-                        <span class="absolute top-6 right-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">After</span>
-                        
-                        <div class="before-image-container absolute inset-0 w-[50%] h-full overflow-hidden border-r-2 border-white shadow-[5px_0_15px_rgba(0,0,0,0.7)] z-20">
-                            <img src="assets/compare_5_1.jpg" class="before-image absolute inset-0 h-full object-cover max-w-none" alt="Before">
-                            <span class="absolute top-6 left-6 bg-black/60 backdrop-blur text-white text-xs tracking-widest uppercase px-4 py-2 rounded-xl border border-white/20 z-10 pointer-events-none">Before</span>
-                        </div>
-                        
-                        <div class="slider-button absolute inset-y-0 left-[50%] flex items-center justify-center -ml-[20px] pointer-events-none z-30">
-                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] border-2 border-gray-200"><svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg></div>
-                        </div>
-                        
-                        <input type="range" min="0" max="100" value="50" class="comparison-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40">
-                    </div>
-                    <div class="px-1">
-                        <h3 class="text-white text-sm font-medium tracking-widest uppercase">Final Color Grading</h3>
-                        <p class="text-gray-400 text-xs mt-1 font-light leading-relaxed">To help the client make a decision, we show what our property will look like at different times of the year.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+```html
     <section id="panoramas" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
              <div class="flex items-center gap-4 mb-12 border-b border-gray-800 pb-4">
                 <button onclick="window.location.hash='home'" class="text-gray-500 hover:text-white transition"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></button>
@@ -631,6 +515,8 @@
 
                 </div>
         </section>
+
+```
 
         <!-- 8. GOOGLE REVIEWS SECTION -->
         <section id="reviews" class="page-section min-h-screen pt-20 pb-24 px-6 max-w-7xl mx-auto">
