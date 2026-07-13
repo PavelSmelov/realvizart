@@ -821,12 +821,12 @@
                 { preview: "assets/project7_thumb_6.jpg", full: "assets/project7_full_6.jpg" }
             ],
             8: [
-                { preview: "assets/project6_thumb_1.jpg", full: "assets/project6_full_1.jpg" },
-                { preview: "assets/project6_thumb_2.jpg", full: "assets/project6_full_2.jpg" },
-                { preview: "assets/project6_thumb_3.jpg", full: "assets/project6_full_3.jpg" },
-                { preview: "assets/project6_thumb_4.jpg", full: "assets/project6_full_4.jpg" },
-                { preview: "assets/project6_thumb_5.jpg", full: "assets/project6_full_5.jpg" },
-                { preview: "assets/project6_thumb_6.jpg", full: "assets/project6_full_5.jpg" }
+                { preview: "assets/project8_thumb_1.jpg", full: "assets/project8_full_1.jpg" },
+                { preview: "assets/project8_thumb_2.jpg", full: "assets/project8_full_2.jpg" },
+                { preview: "assets/project8_thumb_3.jpg", full: "assets/project8_full_3.jpg" },
+                { preview: "assets/project8_thumb_4.jpg", full: "assets/project8_full_4.jpg" },
+                { preview: "assets/project8_thumb_5.jpg", full: "assets/project8_full_5.jpg" },
+                { preview: "assets/project8_thumb_6.jpg", full: "assets/project8_full_5.jpg" }
            ]
         };
 
@@ -846,8 +846,7 @@
 
             if (hash.startsWith('project-view-')) {
                 let projectId = parseInt(hash.replace('project-view-', ''), 10);
-                if (!projectId || projectId < 1 || projectId > 6) projectId = 1;
-
+                if (!projectId || !projectGalleries[projectId]) projectId = 1;
                 const container = document.getElementById('project-images-grid');
                 document.getElementById('project-title').innerHTML = `Project <span class="font-medium">${String(projectId).padStart(2, '0')}</span>`;
 
