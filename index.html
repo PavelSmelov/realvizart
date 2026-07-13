@@ -879,7 +879,11 @@
 
             if (hash.startsWith('project-view-')) {
                 let projectId = parseInt(hash.replace('project-view-', ''), 10);
-                if (!projectId || !projectGalleries[projectId]) projectId = 1;
+               // Проверяем, существует ли такой проект в словаре. Если нет - кидаем на главную.
+                if (!projectId || !projectGalleries[projectId]) {
+                    window.location.hash = 'renders';
+                    return;
+                }
                 const container = document.getElementById('project-images-grid');
                 document.getElementById('project-title').innerHTML = `Project <span class="font-medium">${String(projectId).padStart(2, '0')}</span>`;
 
